@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Adds the staging-safe “Home Design Test” page template for the Infometry enterprise homepage.
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.0.0' );
+define( 'INFOMETRY_CT_VERSION', '2.0.1' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 
@@ -28,12 +28,52 @@ function infometry_ct_register_page_template( $templates ) {
 add_filter( 'theme_page_templates', 'infometry_ct_register_page_template' );
 
 /**
+ * Return the original page ID for normal, preview, revision, and autosave
+ * requests. Builder/theme previews do not always make is_page_template()
+ * reliable, so the template slug is resolved directly from the page record.
+ *
+ * @return int
+ */
+function infometry_ct_get_current_page_id() {
+	$page_id = get_queried_object_id();
+
+	if ( is_preview() && isset( $_GET['preview_id'] ) ) {
+		$preview_id = absint( wp_unslash( $_GET['preview_id'] ) );
+		if ( $preview_id ) {
+			$page_id = $preview_id;
+		}
+	}
+
+	if ( ! $page_id && isset( $GLOBALS['post']->ID ) ) {
+		$page_id = absint( $GLOBALS['post']->ID );
+	}
+
+	$revision_parent = $page_id ? wp_is_post_revision( $page_id ) : false;
+	if ( $revision_parent ) {
+		$page_id = (int) $revision_parent;
+	}
+
+	$autosave_parent = $page_id ? wp_is_post_autosave( $page_id ) : false;
+	if ( $autosave_parent ) {
+		$page_id = (int) $autosave_parent;
+	}
+
+	return (int) $page_id;
+}
+
+/**
  * Decide whether the current page has selected this plugin template.
  *
  * @return bool
  */
 function infometry_ct_should_use_home_template() {
-	return is_page_template( 'templates/page-home-design-test.php' );
+	$page_id = infometry_ct_get_current_page_id();
+
+	if ( ! $page_id || 'page' !== get_post_type( $page_id ) ) {
+		return false;
+	}
+
+	return 'templates/page-home-design-test.php' === get_page_template_slug( $page_id );
 }
 
 /**
@@ -51,7 +91,8 @@ function infometry_ct_load_page_template( $template ) {
 	}
 	return $template;
 }
-add_filter( 'template_include', 'infometry_ct_load_page_template', 99 );
+add_filter( 'page_template', 'infometry_ct_load_page_template', PHP_INT_MAX );
+add_filter( 'template_include', 'infometry_ct_load_page_template', PHP_INT_MAX );
 
 /**
  * Add a page-specific body class for safely scoping BeTheme overrides.
