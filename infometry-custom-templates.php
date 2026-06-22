@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Infometry Custom Templates
- * Description: Replaces the existing WordPress front page with the Infometry enterprise homepage while retaining a reusable page template.
- * Version: 1.7.1
+ * Description: Adds the staging-safe “Home Design Test” page template for the Infometry enterprise homepage.
+ * Version: 2.0.0
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '1.7.1' );
+define( 'INFOMETRY_CT_VERSION', '2.0.0' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 
@@ -28,19 +28,12 @@ function infometry_ct_register_page_template( $templates ) {
 add_filter( 'theme_page_templates', 'infometry_ct_register_page_template' );
 
 /**
- * Decide whether this request should use the custom Infometry homepage.
- *
- * The selected template remains available for staging pages, while the site's
- * existing WordPress front page now uses the same design automatically.
- * The filter provides a code-level rollback switch if it is ever required.
+ * Decide whether the current page has selected this plugin template.
  *
  * @return bool
  */
 function infometry_ct_should_use_home_template() {
-	$uses_selected_template = is_page_template( 'templates/page-home-design-test.php' );
-	$replace_front_page     = (bool) apply_filters( 'infometry_ct_replace_front_page', true );
-
-	return $uses_selected_template || ( is_front_page() && $replace_front_page );
+	return is_page_template( 'templates/page-home-design-test.php' );
 }
 
 /**
@@ -69,16 +62,13 @@ add_filter( 'template_include', 'infometry_ct_load_page_template', 99 );
 function infometry_ct_body_classes( $classes ) {
 	if ( infometry_ct_should_use_home_template() ) {
 		$classes[] = 'infometry-home-test-page';
-		if ( is_front_page() ) {
-			$classes[] = 'infometry-custom-front-page';
-		}
 	}
 	return array_unique( $classes );
 }
 add_filter( 'body_class', 'infometry_ct_body_classes' );
 
 /**
- * Enqueue isolated assets only for the selected template or site front page.
+ * Enqueue isolated assets only when “Home Design Test” is selected.
  */
 function infometry_ct_enqueue_assets() {
 	if ( ! infometry_ct_should_use_home_template() ) {
