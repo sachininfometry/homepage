@@ -79,13 +79,13 @@ $cpg_url           = home_url( '/retail/' );
 
 			<div class="infometry-dashboard-wrap infometry-hero-slider" aria-label="INFOFISCUS Conversa product preview carousel">
 				<figure class="infometry-hero-slide is-home">
-					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-home.png' ); ?>" alt="INFOFISCUS Conversa home dashboard">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-home.jpg' ); ?>" alt="INFOFISCUS Conversa home dashboard">
 				</figure>
 				<figure class="infometry-hero-slide is-storybooks">
-					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-storybooks.png' ); ?>" alt="INFOFISCUS Conversa storybooks dashboard">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-storybooks.jpg' ); ?>" alt="INFOFISCUS Conversa storybooks dashboard">
 				</figure>
 				<figure class="infometry-hero-slide is-connections">
-					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections.png' ); ?>" alt="INFOFISCUS Conversa connections dashboard">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections.jpg' ); ?>" alt="INFOFISCUS Conversa connections dashboard">
 				</figure>
 				<div class="infometry-hero-slider-dots" aria-hidden="true"><span></span><span></span><span></span></div>
 			</div>

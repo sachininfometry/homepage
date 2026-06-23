@@ -229,9 +229,7 @@ body.page-id-380881 .infometry-home-test {
   min-height: 0;
   object-fit: contain;
   object-position: center;
-  border: 1px solid rgba(255,255,255,.24);
   border-radius: 8px;
-  box-shadow: 0 24px 60px rgba(0,5,30,.32), 0 0 42px rgba(45,103,255,.12);
 }
 .infometry-home-test .infometry-hero-slide.is-storybooks { animation-delay: 5s; }
 .infometry-home-test .infometry-hero-slide.is-connections { animation-delay: 10s; }
