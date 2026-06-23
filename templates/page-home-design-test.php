@@ -85,7 +85,7 @@ $cpg_url           = home_url( '/retail/' );
 					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-storybooks-1.jpg' ); ?>" alt="INFOFISCUS Conversa storybooks dashboard">
 				</figure>
 				<figure class="infometry-hero-slide is-connections">
-					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections.jpg' ); ?>" alt="INFOFISCUS Conversa connections dashboard">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections-1.jpg' ); ?>" alt="INFOFISCUS Conversa connections dashboard">
 				</figure>
 				<div class="infometry-hero-slider-dots" aria-hidden="true"><span></span><span></span><span></span></div>
 			</div>
