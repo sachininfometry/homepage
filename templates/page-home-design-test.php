@@ -77,23 +77,17 @@ $cpg_url           = home_url( '/retail/' );
 				</div>
 			</div>
 
-			<div class="infometry-dashboard-wrap" aria-label="INFOFISCUS Conversa product home preview">
-				<aside class="infometry-app-sidebar">
-					<div class="infometry-app-brand"><img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infofiscus-conversa-mark.png' ); ?>" alt=""><span><strong>INFOFISCUS</strong><small>CONVERSA</small></span></div>
-					<nav aria-label="Conversa preview navigation"><span class="is-active">⌂ <b>Home</b></span><span>□ <b>New chat</b></span><span>⌕ <b>Search chats</b></span><span>▥ <b>Storybooks</b></span><span>♙ <b>Shared with me</b></span></nav>
-					<div class="infometry-app-chats"><strong>Chats</strong><span>◯ Retail performance</span><span>◯ Sales overview</span><span>◯ Product insights</span></div>
-				</aside>
-				<div class="infometry-app-shell">
-					<div class="infometry-app-topbar"><span>Conversa&nbsp; / &nbsp;<b>Home</b></span><div aria-hidden="true">▤ &nbsp; ◇ &nbsp; ▦ &nbsp; ☾ &nbsp; <i>A</i></div></div>
-					<div class="infometry-app-home">
-						<span class="infometry-live-pill">● INFOFISCUS Conversa 2.0 is live</span>
-						<h2>Bring data intelligence into<br><span>every decision with INFOFISCUS</span></h2>
-						<p>The enterprise conversational AI platform that lets teams chat seamlessly with their trusted data.</p>
-						<div class="infometry-app-actions"><span>Start Chatting</span><span>Connections</span></div>
-						<a href="<?php echo esc_url( $conversa_url ); ?>">Learn more about Conversa&nbsp; →</a>
-						<div class="infometry-app-features"><article><i>ϟ</i><b>Instant Insights</b><small>Ask questions in natural language.</small></article><article><i>♢</i><b>Enterprise Secure</b><small>Governed, trusted data access.</small></article><article><i>⌕</i><b>Explore Your Data</b><small>Turn answers into decisions.</small></article></div>
-					</div>
-				</div>
+			<div class="infometry-dashboard-wrap infometry-hero-slider" aria-label="INFOFISCUS Conversa product preview carousel">
+				<figure class="infometry-hero-slide is-home">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-home.png' ); ?>" alt="INFOFISCUS Conversa home dashboard">
+				</figure>
+				<figure class="infometry-hero-slide is-storybooks">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-storybooks.png' ); ?>" alt="INFOFISCUS Conversa storybooks dashboard">
+				</figure>
+				<figure class="infometry-hero-slide is-connections">
+					<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/conversa-connections.png' ); ?>" alt="INFOFISCUS Conversa connections dashboard">
+				</figure>
+				<div class="infometry-hero-slider-dots" aria-hidden="true"><span></span><span></span><span></span></div>
 			</div>
 		</div>
 	</section>
