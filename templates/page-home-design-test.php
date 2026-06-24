@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$demo_url          = apply_filters( 'infometry_home_demo_url', home_url( '/infofiscus-analytics-sign-up-for-demo/' ) );
+$demo_url          = apply_filters( 'infometry_home_demo_url', home_url( '/contact-us/' ) );
 $contact_url       = apply_filters( 'infometry_home_contact_url', home_url( '/contact-us/' ) );
 $conversa_url      = home_url( '/product/conversational-analytics/' );
 $snowflake_url     = home_url( '/product/snowflake-native-apps/' );
