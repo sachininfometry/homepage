@@ -331,6 +331,10 @@
 
 	originals.forEach( function ( item ) {
 		var clone = item.cloneNode( true );
+		var itemStyle = window.getComputedStyle( item );
+		[ '--industry-accent', '--industry-accent-2', '--industry-tint' ].forEach( function ( property ) {
+			clone.style.setProperty( property, itemStyle.getPropertyValue( property ).trim() );
+		} );
 		clone.setAttribute( 'aria-hidden', 'true' );
 		clone.querySelectorAll( 'a, button, input, select, textarea' ).forEach( function ( control ) {
 			control.setAttribute( 'tabindex', '-1' );
@@ -500,48 +504,86 @@
 ( function () {
 	'use strict';
 
-	document.querySelectorAll( '.infometry-home-test #infometry-capability-carousel, .infometry-home-test #infometry-industry-carousel, .infometry-home-test #infometry-partner-carousel, .infometry-home-test #infometry-customer-carousel' ).forEach( function ( track ) {
+	document.querySelectorAll( '.infometry-home-test #infometry-product-carousel, .infometry-home-test #infometry-capability-carousel, .infometry-home-test #infometry-industry-carousel, .infometry-home-test #infometry-partner-carousel, .infometry-home-test #infometry-customer-carousel' ).forEach( function ( track ) {
 		var dragging = false;
 		var moved = false;
 		var startX = 0;
+		var startY = 0;
 		var startScroll = 0;
+
+		function startDragging( clientX, clientY ) {
+			dragging = true;
+			moved = false;
+			startX = clientX;
+			startY = clientY;
+			startScroll = track.scrollLeft;
+			track.classList.add( 'is-dragging' );
+		}
+
+		function moveDragging( clientX ) {
+			if ( ! dragging ) {
+				return;
+			}
+			var distance = clientX - startX;
+			if ( Math.abs( distance ) > 4 ) {
+				moved = true;
+			}
+			track.scrollLeft = startScroll - distance;
+		}
 
 		track.addEventListener( 'pointerdown', function ( event ) {
 			if ( event.pointerType === 'mouse' && event.button !== 0 ) {
 				return;
 			}
-			dragging = true;
-			moved = false;
-			startX = event.clientX;
-			startScroll = track.scrollLeft;
-			track.classList.add( 'is-dragging' );
+			startDragging( event.clientX, event.clientY );
 			track.setPointerCapture( event.pointerId );
 		} );
 
 		track.addEventListener( 'pointermove', function ( event ) {
-			if ( ! dragging ) {
-				return;
+			var distanceX = event.clientX - startX;
+			var distanceY = event.clientY - startY;
+			if ( event.pointerType !== 'mouse' && Math.abs( distanceX ) > Math.abs( distanceY ) && Math.abs( distanceX ) > 4 ) {
+				event.preventDefault();
 			}
-			var distance = event.clientX - startX;
-			if ( Math.abs( distance ) > 4 ) {
-				moved = true;
-			}
-			track.scrollLeft = startScroll - distance;
+			moveDragging( event.clientX );
 		} );
 
 		function stopDragging( event ) {
+			if ( event && typeof event.pointerId !== 'undefined' && track.hasPointerCapture( event.pointerId ) ) {
+				track.releasePointerCapture( event.pointerId );
+			}
 			if ( ! dragging ) {
 				return;
 			}
 			dragging = false;
 			track.classList.remove( 'is-dragging' );
-			if ( track.hasPointerCapture( event.pointerId ) ) {
-				track.releasePointerCapture( event.pointerId );
-			}
 		}
 
 		track.addEventListener( 'pointerup', stopDragging );
 		track.addEventListener( 'pointercancel', stopDragging );
+		track.addEventListener( 'touchstart', function ( event ) {
+			if ( event.touches.length !== 1 ) {
+				return;
+			}
+			startDragging( event.touches[0].clientX, event.touches[0].clientY );
+		}, { passive: true } );
+		track.addEventListener( 'touchmove', function ( event ) {
+			if ( ! dragging || event.touches.length !== 1 ) {
+				return;
+			}
+			var touch = event.touches[0];
+			var distanceX = touch.clientX - startX;
+			var distanceY = touch.clientY - startY;
+			if ( Math.abs( distanceX ) > Math.abs( distanceY ) && Math.abs( distanceX ) > 4 ) {
+				event.preventDefault();
+			}
+			moveDragging( touch.clientX );
+		}, { passive: false } );
+		track.addEventListener( 'touchend', stopDragging, { passive: true } );
+		track.addEventListener( 'touchcancel', stopDragging, { passive: true } );
+		track.addEventListener( 'dragstart', function ( event ) {
+			event.preventDefault();
+		} );
 		track.addEventListener( 'click', function ( event ) {
 			if ( moved ) {
 				event.preventDefault();
