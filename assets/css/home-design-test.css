@@ -328,7 +328,7 @@ body.page-id-380881 .infometry-home-test {
 
 .infometry-home-test .infometry-products { padding: 72px 0 42px; background: linear-gradient(#fff, #fafbff); }
 .infometry-home-test .infometry-section-head { margin: 0 auto 30px; text-align: center; }
-.infometry-home-test .infometry-section-head > span { display: block; margin-bottom: 5px; color: #5c4cff; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.infometry-home-test .infometry-section-head > span { display: block; margin-bottom: 5px; color: #006dd2; font-size: 18px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .infometry-home-test .infometry-section-head h2 { margin-bottom: 5px; color: #111a48; font-size: clamp(25px, 2.3vw, 34px); line-height: 1.25; font-weight: 800; }
 .infometry-home-test .infometry-section-head p { margin-bottom: 0; color: #39435d; font-size: 14px; }
 .infometry-home-test .infometry-card-grid { display: grid; gap: 16px; }
