@@ -285,7 +285,7 @@ body.page-id-380881 .infometry-home-test {
 .infometry-home-test .infometry-counter { font-variant-numeric: tabular-nums; }
 .infometry-home-test .infometry-stat span { margin-top: 4px; color: #1D5080; font-family: "Roboto", sans-serif; font-size: 20px; line-height: 1.25; white-space: nowrap; font-weight: 500; text-align: center; }
 .infometry-home-test .infometry-partner-panel { display: flex; grid-column: 1 / -1; min-width: 0; margin-top: 13px; padding-top: 14px; border-top: 1px solid #e5eaf1; flex-direction: column; justify-content: flex-start; }
-.infometry-home-test .infometry-partner-heading { display: block; width: 100%; margin: 0 0 5px; color: #006dd2; font-size: 11px; font-weight: 800; letter-spacing: .18em; line-height: 1.2; text-align: center; text-transform: uppercase; }
+.infometry-home-test .infometry-partner-heading { display: block; width: 100%; margin: 0 0 5px; color: #051C38; font-size: 12.4px; font-weight: 800; letter-spacing: .18em; line-height: 1.2; text-align: center; text-transform: uppercase; }
 .infometry-home-test .infometry-partners { display: flex; align-items: center; gap: 0; min-width: 0; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
 .infometry-home-test .infometry-partners::-webkit-scrollbar { display: none; }
 .infometry-home-test .infometry-partners > a { display: flex; min-width: 0; min-height: 43px; padding: 0 12px; flex: 0 0 20%; flex-direction: column; align-items: center; justify-content: center; color: #27304b; text-align: center; white-space: nowrap; transition: transform .2s ease, opacity .2s ease; }
