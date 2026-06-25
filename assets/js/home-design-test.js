@@ -237,7 +237,7 @@
 		measure();
 		resume();
 	}, 250 );
-	window.requestAnimationFrame( animate );
+	// Autoplay disabled for this section; keep manual scroll/drag behavior intact.
 }() );
 
 /**
@@ -325,7 +325,7 @@
 		measure();
 		resume();
 	}, 250 );
-	window.requestAnimationFrame( animate );
+	// Autoplay disabled for this section; keep manual scroll/drag behavior intact.
 }() );
 
 /**
@@ -415,7 +415,7 @@
 		measure();
 		resume();
 	}, 250 );
-	window.requestAnimationFrame( animate );
+	// Autoplay disabled for this section; keep manual scroll/drag behavior intact.
 }() );
 
 /**
