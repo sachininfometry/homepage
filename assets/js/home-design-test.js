@@ -17,6 +17,10 @@
 
 	originals.forEach( function ( card ) {
 		var clone = card.cloneNode( true );
+		var cardStyles = window.getComputedStyle( card );
+		[ '--product-accent', '--product-accent-2', '--product-tint' ].forEach( function ( property ) {
+			clone.style.setProperty( property, cardStyles.getPropertyValue( property ).trim() );
+		} );
 		clone.setAttribute( 'aria-hidden', 'true' );
 		clone.querySelectorAll( 'a, button, input, select, textarea' ).forEach( function ( control ) {
 			control.setAttribute( 'tabindex', '-1' );
@@ -69,6 +73,18 @@
 	track.addEventListener( 'mouseleave', resume );
 	track.addEventListener( 'touchstart', pause, { passive: true } );
 	track.addEventListener( 'touchend', resume, { passive: true } );
+	track.addEventListener( 'click', function ( event ) {
+		var card = event.target.closest( '.infometry-product-card' );
+		var link = card ? card.querySelector( 'a[href]' ) : null;
+		if ( ! link || event.target.closest( 'a, button, input, select, textarea' ) ) {
+			return;
+		}
+		if ( event.metaKey || event.ctrlKey ) {
+			window.open( link.href, '_blank' );
+			return;
+		}
+		window.location.href = link.href;
+	} );
 	track.addEventListener( 'scroll', function () {
 		if ( paused ) {
 			position = track.scrollLeft;
