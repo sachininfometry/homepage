@@ -527,6 +527,10 @@
 		var startY = 0;
 		var startScroll = 0;
 
+		function isLinkOrControl( target ) {
+			return target.closest( 'a, button, input, select, textarea, label' );
+		}
+
 		function startDragging( clientX, clientY ) {
 			dragging = true;
 			moved = false;
@@ -548,6 +552,10 @@
 		}
 
 		track.addEventListener( 'pointerdown', function ( event ) {
+			if ( isLinkOrControl( event.target ) ) {
+				return;
+			}
+
 			if ( event.pointerType === 'mouse' && event.button !== 0 ) {
 				return;
 			}
@@ -577,12 +585,14 @@
 
 		track.addEventListener( 'pointerup', stopDragging );
 		track.addEventListener( 'pointercancel', stopDragging );
+
 		track.addEventListener( 'touchstart', function ( event ) {
-			if ( event.touches.length !== 1 ) {
+			if ( event.touches.length !== 1 || isLinkOrControl( event.target ) ) {
 				return;
 			}
 			startDragging( event.touches[0].clientX, event.touches[0].clientY );
 		}, { passive: true } );
+
 		track.addEventListener( 'touchmove', function ( event ) {
 			if ( ! dragging || event.touches.length !== 1 ) {
 				return;
@@ -595,18 +605,30 @@
 			}
 			moveDragging( touch.clientX );
 		}, { passive: false } );
+
 		track.addEventListener( 'touchend', stopDragging, { passive: true } );
 		track.addEventListener( 'touchcancel', stopDragging, { passive: true } );
+
 		track.addEventListener( 'dragstart', function ( event ) {
+			if ( isLinkOrControl( event.target ) ) {
+				return;
+			}
 			event.preventDefault();
 		} );
+
 		track.addEventListener( 'click', function ( event ) {
+			if ( isLinkOrControl( event.target ) ) {
+				moved = false;
+				return;
+			}
+
 			if ( moved ) {
 				event.preventDefault();
 				event.stopPropagation();
 				moved = false;
 			}
 		}, true );
+
 		track.addEventListener( 'wheel', function ( event ) {
 			if ( Math.abs( event.deltaX ) > Math.abs( event.deltaY ) || event.shiftKey ) {
 				event.preventDefault();
