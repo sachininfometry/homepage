@@ -104,6 +104,87 @@
 }() );
 
 /**
+ * Add bottom dots to stopped horizontal strips so they read as scrollable.
+ */
+( function () {
+	'use strict';
+
+	var targets = [
+		{ id: 'infometry-capability-carousel', label: 'capabilities', dark: true },
+		{ id: 'infometry-industry-carousel', label: 'industries' },
+		{ id: 'infometry-customer-carousel', label: 'customers' }
+	];
+
+	targets.forEach( function ( target ) {
+		var track = document.querySelector( '.infometry-home-test #' + target.id );
+		if ( ! track || track.closest( '.infometry-scroll-hint' ) ) {
+			return;
+		}
+
+		var wrapper = document.createElement( 'div' );
+		wrapper.className = 'infometry-scroll-hint';
+		if ( target.dark ) {
+			wrapper.classList.add( 'is-dark' );
+		}
+		if ( track.classList.contains( 'infometry-shell' ) ) {
+			wrapper.classList.add( 'infometry-shell' );
+			track.classList.remove( 'infometry-shell' );
+		}
+
+		track.parentNode.insertBefore( wrapper, track );
+		wrapper.appendChild( track );
+
+		var dots = document.createElement( 'div' );
+		dots.className = 'infometry-scroll-dots';
+		dots.setAttribute( 'aria-label', target.label + ' slide navigation' );
+		wrapper.appendChild( dots );
+		var dotButtons = [];
+
+		function updateControls() {
+			var maxScroll = track.scrollWidth - track.clientWidth;
+			var hasOverflow = maxScroll > 4;
+			var pageWidth = Math.max( track.clientWidth * 0.82, 260 );
+			var pageCount = hasOverflow ? Math.min( 6, Math.max( 2, Math.ceil( maxScroll / pageWidth ) + 1 ) ) : 0;
+			var activeIndex = hasOverflow ? Math.round( ( track.scrollLeft / maxScroll ) * ( pageCount - 1 ) ) : 0;
+
+			wrapper.classList.toggle( 'is-no-overflow', ! hasOverflow );
+			if ( dotButtons.length !== pageCount ) {
+				dots.textContent = '';
+				dotButtons = [];
+				for ( var index = 0; index < pageCount; index++ ) {
+					( function ( dotIndex ) {
+						var dot = document.createElement( 'button' );
+						dot.type = 'button';
+						dot.className = 'infometry-scroll-dot';
+						dot.setAttribute( 'aria-label', 'Show ' + target.label + ' slide ' + ( dotIndex + 1 ) );
+						dot.addEventListener( 'click', function () {
+							var targetScroll = pageCount > 1 ? maxScroll * dotIndex / ( pageCount - 1 ) : 0;
+							track.scrollTo( {
+								left: targetScroll,
+								behavior: 'smooth'
+							} );
+							window.setTimeout( updateControls, 320 );
+						} );
+						dots.appendChild( dot );
+						dotButtons.push( dot );
+					}( index ) );
+				}
+			}
+			dotButtons.forEach( function ( dot, index ) {
+				var active = index === activeIndex;
+				dot.classList.toggle( 'is-active', active );
+				dot.setAttribute( 'aria-current', active ? 'true' : 'false' );
+			} );
+		}
+		track.addEventListener( 'scroll', updateControls, { passive: true } );
+		window.addEventListener( 'resize', updateControls, { passive: true } );
+		window.addEventListener( 'load', updateControls, { once: true } );
+		updateControls();
+		window.setTimeout( updateControls, 300 );
+	} );
+}() );
+
+/**
  * Animate the impact figures once they enter the viewport.
  */
 ( function () {
