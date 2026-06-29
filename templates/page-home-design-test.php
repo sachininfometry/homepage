@@ -130,7 +130,7 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 					<span>Who we are</span>
 					<h2 id="infometry-who-title">Enterprise Data Solutions. AI-Powered Decisions. Measurable Business Impact.</h2>
 					<p>Infometry helps enterprises modernize data with AI-native products, intelligent automation, and governed cloud platforms.</p>
-					<p>With 15+ years of expertise and 350+ successful transformations, we turn fragmented enterprise data into trusted insights, faster decisions, and measurable business outcomes.</p>
+					<p>With 16+ years of expertise and 350+ successful transformations, we turn fragmented enterprise data into trusted insights, faster decisions, and measurable business outcomes.</p>
 					<a href="<?php echo esc_url( $about_url ); ?>">Explore Infometry <span aria-hidden="true">→</span></a>
 				</div>
 				<div class="infometry-who-insight">
@@ -213,7 +213,7 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 	<section class="infometry-final-cta">
 		<div class="infometry-shell">
 			<div class="infometry-cta-panel">
-				<div class="infometry-cta-copy"><img class="infometry-cta-logo" src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-logo-white.png' ); ?>" alt="Infometry Inc. — Enabling AI for Every Enterprise"><span>Ready for AI-driven transformation?</span><h2>Modernize Data.<br>Accelerate AI. Drive Business Outcomes.</h2><p>Infometry helps enterprises unlock trusted insights through AI-powered analytics, Agentic AI, cloud data modernization, and intelligent automation.</p><div class="infometry-cta-proof"><span><b>15+</b> Years Data &amp; AI Expertise</span><span><b>350+</b> Enterprise Projects</span><span><b>24×7</b> Global Support</span></div></div>
+				<div class="infometry-cta-copy"><img class="infometry-cta-logo" src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infometry-logo-white.png' ); ?>" alt="Infometry Inc. — Enabling AI for Every Enterprise"><span>Ready for AI-driven transformation?</span><h2>Modernize Data.<br>Accelerate AI. Drive Business Outcomes.</h2><p>Infometry helps enterprises unlock trusted insights through AI-powered analytics, Agentic AI, cloud data modernization, and intelligent automation.</p><div class="infometry-cta-proof"><span><b>16+</b> Years Data &amp; AI Expertise</span><span><b>350+</b> Enterprise Projects</span><span><b>24×7</b> Global Support</span></div></div>
 				<div class="infometry-actions"><a class="infometry-button infometry-button-light" href="<?php echo esc_url( $demo_url ); ?>">Request a Demo <span>→</span></a><a class="infometry-button infometry-button-ghost" href="<?php echo esc_url( $contact_url ); ?>">Speak with an Expert</a></div>
 				<div class="infometry-cta-art" aria-hidden="true"><span>Enterprise AI</span><i></i><i></i><i></i><b>AI</b></div>
 			</div>
