@@ -128,7 +128,7 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 			<div class="infometry-who-panel">
 				<div class="infometry-who-copy">
 					<span>Who we are</span>
-					<h2 id="infometry-who-title">Enterprise Data. AI-Powered Decisions. Measurable Business Impact.</h2>
+					<h2 id="infometry-who-title">Enterprise Data Solutions. AI-Powered Decisions. Measurable Business Impact.</h2>
 					<p>Infometry helps enterprises modernize data with AI-native products, intelligent automation, and governed cloud platforms.</p>
 					<p>With 15+ years of expertise and 350+ successful transformations, we turn fragmented enterprise data into trusted insights, faster decisions, and measurable business outcomes.</p>
 					<a href="<?php echo esc_url( $about_url ); ?>">Explore Infometry <span aria-hidden="true">→</span></a>
