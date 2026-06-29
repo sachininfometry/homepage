@@ -71,15 +71,15 @@ $supply_chain_url  = home_url( '/manufacturing-and-supply-chain/' );
 		<div class="infometry-shell infometry-hero-grid">
 			<div class="infometry-hero-copy">
 				<span class="infometry-eyebrow">Conversation Analytics Platform for Enterprise</span>
-				<h1 id="infometry-hero-title">Ask Your Data Anything.<br>Get Insights.<br><span>Drive Results.</span></h1>
+				<h1 id="infometry-hero-title">Ask Anything.<br>Get Insights.<br><span>Drive Results.</span></h1>
 				<p>From the C-suite to frontline teams, INFOFISCUS Conversa makes enterprise data accessible to all - no SQL, no bottlenecks. Just natural questions, instant insights, and confident, data-driven decisions.</p>
 				<div class="infometry-actions">
 					<a class="infometry-button infometry-button-primary" href="<?php echo esc_url( $demo_url ); ?>">Request a Demo <span aria-hidden="true">→</span></a>
 					<a class="infometry-button infometry-button-ghost" href="#infometry-products"><span class="infometry-play" aria-hidden="true">▶</span> Explore Solutions</a>
 				</div>
 				<div class="infometry-hero-benefits" aria-label="Product benefits">
-					<span><svg><use href="#i-chat"/></svg>Ask in Natural<br>Language</span>
-					<span><svg><use href="#i-snow"/></svg>Instant Business<br>Insights</span>
+					<span><svg><use href="#i-chat"/></svg>Ask in <br>Natural Language</span>
+					<span><svg><use href="#i-snow"/></svg>Instant <br>Business Insights</span>
 					<span><svg><use href="#i-shield"/></svg>Enterprise-Grade<br>Security</span>
 					<span><svg><use href="#i-target"/></svg>Actionable<br>Recommendations</span>
 				</div>
