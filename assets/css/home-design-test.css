@@ -278,17 +278,17 @@ body.page-id-380881 .infometry-home-test {
 }
 
 .infometry-home-test .infometry-trust { position: relative; z-index: 4; margin-top: -52px; }
-.infometry-home-test .infometry-trust-inner { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; min-height: 258px; padding: 20px 25px; border: 1px solid #edf1f7; border-radius: 16px; background: #fff; box-shadow: 0 24px 46px rgba(7,22,62,.12); }
-.infometry-home-test .infometry-stat { display: flex; min-width: 0; min-height: 126px; padding: 8px 18px 18px; flex-direction: column; align-items: center; justify-content: center; border-right: 1px solid #dde4ef; text-align: center; }
+.infometry-home-test .infometry-trust-inner { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; min-height: 258px; padding: clamp(16px, 1.8vw, 20px) clamp(14px, 2vw, 25px); overflow: hidden; border: 1px solid #edf1f7; border-radius: 16px; background: #fff; box-shadow: 0 24px 46px rgba(7,22,62,.12); }
+.infometry-home-test .infometry-stat { display: flex; min-width: 0; min-height: clamp(92px, 10vw, 126px); padding: 8px clamp(8px, 1.3vw, 18px) 18px; flex-direction: column; align-items: center; justify-content: center; border-right: 1px solid #dde4ef; text-align: center; }
 .infometry-home-test .infometry-stat:nth-child(5) { border-right: 0; }
-.infometry-home-test .infometry-stat b { color: #051C38; font-family: "Roboto", sans-serif; font-size: 50px; font-weight: 500; line-height: 1; white-space: nowrap; text-align: center; }
+.infometry-home-test .infometry-stat b { color: #051C38; font-family: "Roboto", sans-serif; font-size: clamp(36px, 4vw, 50px); font-weight: 500; line-height: 1; white-space: nowrap; text-align: center; }
 .infometry-home-test .infometry-counter { font-variant-numeric: tabular-nums; }
-.infometry-home-test .infometry-stat span { margin-top: 4px; color: #1D5080; font-family: "Roboto", sans-serif; font-size: 20px; line-height: 1.25; white-space: nowrap; font-weight: 500; text-align: center; }
+.infometry-home-test .infometry-stat span { max-width: 100%; margin-top: 4px; color: #1D5080; font-family: "Roboto", sans-serif; font-size: clamp(13px, 1.45vw, 20px); line-height: 1.25; white-space: normal; overflow-wrap: anywhere; text-wrap: balance; font-weight: 500; text-align: center; }
 .infometry-home-test .infometry-partner-panel { display: flex; grid-column: 1 / -1; min-width: 0; margin-top: 13px; padding-top: 14px; border-top: 1px solid #e5eaf1; flex-direction: column; justify-content: flex-start; }
 .infometry-home-test .infometry-partner-heading { display: block; width: 100%; margin: 0 0 5px; color: #051C38; font-size: 12.4px; font-weight: 800; letter-spacing: .18em; line-height: 1.2; text-align: center; text-transform: uppercase; }
 .infometry-home-test .infometry-partners { display: flex; align-items: center; gap: 0; min-width: 0; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
 .infometry-home-test .infometry-partners::-webkit-scrollbar { display: none; }
-.infometry-home-test .infometry-partners > a { display: flex; min-width: 0; min-height: 43px; padding: 0 12px; flex: 0 0 20%; flex-direction: column; align-items: center; justify-content: center; color: #27304b; text-align: center; white-space: nowrap; transition: transform .2s ease, opacity .2s ease; }
+.infometry-home-test .infometry-partners > a { display: flex; min-width: 132px; min-height: 43px; padding: 0 clamp(8px, 1.1vw, 12px); flex: 0 0 clamp(132px, 20%, 210px); flex-direction: column; align-items: center; justify-content: center; color: #27304b; text-align: center; white-space: nowrap; transition: transform .2s ease, opacity .2s ease; }
 .infometry-home-test .infometry-partners > a:hover { transform: translateY(-2px); opacity: .82; }
 .infometry-home-test .infometry-partners img { display: block; max-width: 100%; object-fit: contain; }
 .infometry-home-test .infometry-partners > a,
@@ -520,7 +520,6 @@ body.page-id-380881 .infometry-home-test {
   .infometry-home-test .infometry-industry-grid article { min-height: 390px; flex-basis: calc((100% - 32px) / 3); }
   .infometry-home-test .infometry-product-card { min-height: 390px; }
   .infometry-home-test .infometry-customer-logo { flex-basis: calc((100% - 32px) / 3); }
-  .infometry-home-test .infometry-trust-inner { grid-template-columns: repeat(5, 1fr); }
   .infometry-home-test .infometry-partner-panel { grid-column: 1 / -1; padding: 14px 0 0; margin-top: 13px; border-top: 1px solid #e5eaf1; }
   .infometry-home-test .infometry-value-grid article { padding: 0 20px; }
 }
@@ -538,7 +537,10 @@ body.page-id-380881 .infometry-home-test {
   .infometry-home-test .infometry-actions { justify-content: center; }
   .infometry-home-test .infometry-dashboard-wrap { width: min(100%, 760px); min-height: auto; margin-inline: auto; }
   .infometry-home-test .infometry-trust { margin-top: -40px; }
+  .infometry-home-test .infometry-trust-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .infometry-home-test .infometry-stat { padding: 6px 12px; text-align: center; }
+  .infometry-home-test .infometry-stat:nth-child(3) { border-right: 0; }
+  .infometry-home-test .infometry-stat:nth-child(-n+3) { border-bottom: 1px solid #e5e8f0; }
   .infometry-home-test .infometry-stat b { font-size: 42px; }
   .infometry-home-test .infometry-stat span { font-size: 13px; }
   .infometry-home-test .infometry-value-grid article { flex-basis: 50%; }
@@ -579,6 +581,7 @@ body.page-id-380881 .infometry-home-test {
   .infometry-home-test .infometry-hero-slider-dots span { width: 24px; height: 3px; }
   .infometry-home-test .infometry-trust-inner { grid-template-columns: repeat(2, 1fr); padding: 18px 14px; }
   .infometry-home-test .infometry-stat { min-height: 74px; border-bottom: 1px solid #e5e8f0; }
+  .infometry-home-test .infometry-stat:nth-child(3) { border-right: 1px solid #dde4ef; }
   .infometry-home-test .infometry-stat:nth-child(even) { border-right: 0; }
   .infometry-home-test .infometry-stat:nth-child(5) { grid-column: 1 / -1; border-right: 0; }
   .infometry-home-test .infometry-partners > a { flex-basis: 50%; }
