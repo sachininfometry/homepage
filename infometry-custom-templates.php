@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Adds the staging-safe “Home Design Test” page template for the Infometry enterprise homepage.
- * Version: 2.0.1
+ * Version: 2.1.1
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.0.1' );
+define( 'INFOMETRY_CT_VERSION', '2.1.1' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 
