@@ -103,7 +103,50 @@ $personas = array(
 					</div>
 				</div>
 
-				<div class="icp-dashboard" aria-label="INFOFISCUS Conversa analytics dashboard mockup">
+				<div class="icp-dashboard" aria-label="INFOFISCUS Conversa dashboard mockup">
+					<aside class="icp-dashboard-rail" aria-hidden="true">
+						<span class="icp-rail-menu"></span>
+						<span class="is-active"><svg><use href="#icp-i-analyst"></use></svg></span>
+						<span><svg><use href="#icp-i-spark"></use></svg></span>
+						<span><svg><use href="#icp-i-monitor"></use></svg></span>
+						<span><svg><use href="#icp-i-eye"></use></svg></span>
+						<span><svg><use href="#icp-i-gauge"></use></svg></span>
+					</aside>
+					<div class="icp-dashboard-stage">
+						<div class="icp-dashboard-head">
+							<img src="<?php echo esc_url( INFOMETRY_CT_URL . 'assets/images/infofiscus-conversa-logo.png' ); ?>" alt="INFOFISCUS Conversa">
+							<span aria-hidden="true">...</span>
+						</div>
+						<div class="icp-chat-question">Why did revenue decline in the Western Region this quarter?</div>
+						<div class="icp-ai-orb">AI</div>
+						<div class="icp-answer-card">Revenue declined by 12% in the Western Region primarily due to stockouts in key products and lower repeat purchases.</div>
+						<div class="icp-dashboard-cards">
+							<article class="icp-revenue-card">
+								<h3>Revenue Change</h3>
+								<strong>-12%</strong>
+								<span>vs Last Quarter</span>
+								<div class="icp-revenue-line" aria-hidden="true"></div>
+							</article>
+							<article class="icp-impact-card">
+								<h3>Impact by Category</h3>
+								<div class="icp-impact-donut" aria-hidden="true"></div>
+								<ul>
+									<li><span></span>Stockouts <strong>48%</strong></li>
+									<li><span></span>Repeat Purchases <strong>32%</strong></li>
+									<li><span></span>Pricing <strong>20%</strong></li>
+								</ul>
+							</article>
+							<article class="icp-recommend-card">
+								<h3>Top Recommendations</h3>
+								<ul>
+									<li>Improve inventory availability</li>
+									<li>Boost customer retention</li>
+									<li>Optimize promotions</li>
+								</ul>
+							</article>
+						</div>
+						<div class="icp-dashboard-input"><span>Ask another question...</span><button type="button" aria-label="Send sample prompt">▶</button></div>
+					</div>
 					<div class="icp-dashboard-top">
 						<strong>Conversa</strong>
 						<div><span>Sales Overview</span><span>Filters</span></div>
