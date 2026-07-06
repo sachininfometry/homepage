@@ -78,7 +78,7 @@ body.infometry-conversa-product-page footer#Footer {
 }
 
 .icp-shell {
-  width: min(100% - 72px, 1180px);
+  width: min(100% - 64px, 1360px);
   margin-inline: auto;
 }
 
@@ -190,8 +190,8 @@ body.infometry-conversa-product-page footer#Footer {
 
 .icp-hero-grid {
   display: grid;
-  grid-template-columns: minmax(420px, .7fr) minmax(640px, 1.3fr);
-  gap: 30px;
+  grid-template-columns: minmax(300px, .74fr) minmax(540px, 1.26fr);
+  gap: 70px;
   align-items: center;
   padding: 54px 0 118px;
 }
@@ -227,7 +227,7 @@ body.infometry-conversa-product-page footer#Footer {
 .icp-hero h1 {
   max-width: 560px;
   color: #fff;
-  font-size: clamp(46px, 4.25vw, 58px);
+  font-size: clamp(48px, 4.7vw, 66px);
 }
 
 .icp-hero h1 span {
@@ -608,9 +608,9 @@ body.infometry-conversa-product-page footer#Footer {
 
 .icp-dashboard {
   display: grid;
-  grid-template-columns: 68px minmax(0, 1fr);
-  width: min(740px, 100%);
-  min-height: 520px;
+  grid-template-columns: 62px minmax(0, 1fr);
+  width: min(620px, 100%);
+  min-height: 456px;
   justify-self: end;
   padding: 0;
   border-color: rgba(124, 154, 255, .46);
@@ -634,9 +634,9 @@ body.infometry-conversa-product-page footer#Footer {
 .icp-dashboard-rail {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 22px;
   flex-direction: column;
-  padding: 30px 16px;
+  padding: 24px 10px;
   color: #9fb6ff;
   background: #071847;
 }
@@ -685,7 +685,7 @@ body.infometry-conversa-product-page footer#Footer {
 .icp-dashboard-stage {
   position: relative;
   min-width: 0;
-  padding: 30px 28px 18px;
+  padding: 24px 22px 14px;
   color: #071847;
 }
 
@@ -697,7 +697,7 @@ body.infometry-conversa-product-page footer#Footer {
 }
 
 .icp-dashboard-head img {
-  width: 185px;
+  width: 154px;
   max-width: 46%;
   height: auto;
 }
@@ -710,9 +710,9 @@ body.infometry-conversa-product-page footer#Footer {
 }
 
 .icp-chat-question {
-  width: min(320px, 46%);
-  margin: 28px 52px 0 auto;
-  padding: 17px 18px;
+  width: min(282px, 46%);
+  margin: 20px 44px 0 auto;
+  padding: 13px 15px;
   border-radius: 10px;
   color: #071847;
   background: #e7e4ff;
@@ -722,8 +722,8 @@ body.infometry-conversa-product-page footer#Footer {
 
 .icp-ai-orb {
   position: absolute;
-  top: 122px;
-  right: 24px;
+  top: 101px;
+  right: 18px;
   display: inline-flex;
   width: 38px;
   height: 38px;
@@ -746,10 +746,10 @@ body.infometry-conversa-product-page footer#Footer {
 }
 
 .icp-answer-card {
-  width: min(355px, 52%);
-  min-height: 96px;
-  margin-top: 16px;
-  padding: 18px 20px;
+  width: min(304px, 52%);
+  min-height: 82px;
+  margin-top: 12px;
+  padding: 14px 16px;
   border-radius: 9px;
   color: #122553;
   font-size: 14px;
@@ -759,14 +759,14 @@ body.infometry-conversa-product-page footer#Footer {
 .icp-dashboard-cards {
   display: grid;
   grid-template-columns: 1.02fr 1.06fr .98fr;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 14px;
 }
 
 .icp-dashboard-cards article {
   min-width: 0;
-  min-height: 190px;
-  padding: 18px 16px;
+  min-height: 164px;
+  padding: 14px 12px;
   border-radius: 8px;
 }
 
