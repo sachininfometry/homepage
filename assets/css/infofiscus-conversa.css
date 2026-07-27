@@ -8517,8 +8517,14 @@ body .infometry-conversa-product .icp-demo-form .wpforms-field-row {
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block {
+  display: flex !important;
   width: 100% !important;
+  max-width: none !important;
   padding: 0 !important;
+  margin: 0 !important;
+  float: none !important;
+  flex-direction: column-reverse !important;
+  gap: 9px !important;
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-field-label,
@@ -8532,7 +8538,19 @@ body .infometry-conversa-product .icp-demo-form .wpforms-field-sublabel {
 
 body .infometry-conversa-product .icp-demo-form .wpforms-field-sublabel {
   display: block !important;
-  margin: 8px 0 0 !important;
+  margin: 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field input,
+body .infometry-conversa-product .icp-demo-form .wpforms-field-medium,
+body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block input {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-name > .wpforms-field-label {
+  margin: 0 0 9px !important;
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-required-label {
