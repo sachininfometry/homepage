@@ -6026,6 +6026,318 @@ body .infometry-conversa-product .icp-personas .icp-persona-tags span {
   white-space: nowrap !important;
 }
 
+/* Final phone/tablet layout. Desktop rules above 900px remain unchanged. */
+@media (max-width: 900px) {
+  body .infometry-conversa-product {
+    overflow-x: clip !important;
+  }
+
+  body .infometry-conversa-product > section > .icp-shell,
+  body .infometry-conversa-product > section > .icp-shell.icp-center,
+  body .infometry-conversa-product > .icp-hero > .icp-shell,
+  body .infometry-conversa-product .icp-intro > .icp-shell.icp-intro-grid,
+  body .infometry-conversa-product .icp-personas > .icp-shell {
+    width: calc(100% - 28px) !important;
+    max-width: none !important;
+    margin-inline: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-grid {
+    min-height: 0 !important;
+    padding: 56px 0 62px !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 34px !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy {
+    width: 100% !important;
+    max-width: 560px !important;
+    height: auto !important;
+    margin-inline: auto !important;
+    text-align: center !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy .icp-eyebrow {
+    align-self: center !important;
+    margin-inline: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy h1 {
+    max-width: 100% !important;
+    font-size: clamp(39px, 11.4vw, 50px) !important;
+    line-height: 1.06 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-copy .icp-hero-text {
+    max-width: 540px !important;
+    margin: 20px auto 0 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-actions {
+    margin-top: 24px !important;
+    justify-content: center !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-icons {
+    width: 100% !important;
+    max-width: 460px !important;
+    margin: 28px auto 0 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-slider {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 1.605 / 1 !important;
+    justify-self: center !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-slide {
+    position: absolute !important;
+    inset: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-slide:not(.is-active) {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-strip {
+    margin-top: -28px !important;
+    padding-bottom: 44px !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-strip .icp-shell {
+    width: calc(100% - 28px) !important;
+  }
+
+  body .infometry-conversa-product .icp-hero-strip-inner {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  body .infometry-conversa-product .icp-strip-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body .infometry-conversa-product .icp-strip-stat {
+    min-height: 112px !important;
+    padding: 12px 8px !important;
+  }
+
+  body .infometry-conversa-product .icp-strip-stat strong {
+    font-size: 38px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro > .icp-shell.icp-intro-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 28px !important;
+    padding-block: 58px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-showcase-head {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-showcase-head h2 {
+    max-width: 100% !important;
+    font-size: clamp(34px, 9.6vw, 44px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-showcase-head > p:not(.icp-kicker) {
+    max-width: 100% !important;
+    margin-top: 18px !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-video-frame.icp-architecture-frame {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-value-row {
+    display: grid !important;
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-value-row article {
+    min-height: 0 !important;
+    padding: 20px !important;
+  }
+
+  body .infometry-conversa-product .icp-card-grid.icp-four,
+  body .infometry-conversa-product .icp-workflow-row,
+  body .infometry-conversa-product .icp-persona-grid,
+  body .infometry-conversa-product .icp-card-grid.icp-other-grid,
+  body .infometry-conversa-product .icp-footer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body .infometry-conversa-product .icp-capability-carousel {
+    margin-inline: -14px !important;
+    padding-inline: 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-capability-carousel .icp-feature-card {
+    flex-basis: min(82vw, 310px) !important;
+    min-height: 430px !important;
+  }
+
+  body .infometry-conversa-product .icp-shift-board {
+    padding: 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-shift-labels {
+    display: none !important;
+  }
+
+  body .infometry-conversa-product .icp-shift-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  body .infometry-conversa-product .icp-shift-flow {
+    min-height: 38px !important;
+    transform: rotate(90deg) !important;
+  }
+
+  body .infometry-conversa-product .icp-comparison-table-wrap.icp-comparison-simple {
+    max-width: calc(100vw - 28px) !important;
+    overflow-x: auto !important;
+    border-radius: 14px !important;
+    scrollbar-width: thin;
+  }
+
+  body .infometry-conversa-product .icp-comparison-simple .icp-comparison-table {
+    width: 760px !important;
+    min-width: 760px !important;
+  }
+
+  body .infometry-conversa-product .icp-comparison-simple .icp-comparison-table th,
+  body .infometry-conversa-product .icp-comparison-simple .icp-comparison-table td {
+    min-width: 138px !important;
+    padding: 14px 10px !important;
+    font-size: 13px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form-section {
+    padding: 56px 0 64px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form-section .icp-section-heading {
+    margin-bottom: 28px !important;
+    padding-top: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form-grid {
+    width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 22px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-card,
+  body .infometry-conversa-product .icp-demo-form {
+    width: 100% !important;
+    padding: 18px !important;
+    border-radius: 16px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-calendar {
+    padding: 16px 10px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-days {
+    height: 300px !important;
+    gap: 5px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-days button {
+    min-width: 0 !important;
+    padding: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form .icp-form-row,
+  body .infometry-conversa-product .icp-demo-form .wpforms-field-container,
+  body .infometry-conversa-product .icp-demo-form .wpforms-field-name .wpforms-field-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form-head strong {
+    font-size: 20px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form label {
+    font-size: 15px !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form input {
+    height: 52px !important;
+    min-height: 52px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-card,
+  body .infometry-conversa-product .icp-other-products .icp-feature-card {
+    min-height: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-final-panel {
+    padding: 28px 20px !important;
+    text-align: center !important;
+  }
+
+  body .infometry-conversa-product .icp-final-panel .icp-button {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 420px) {
+  body .infometry-conversa-product .icp-hero .icp-actions {
+    flex-direction: column !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-actions .icp-button {
+    width: 100% !important;
+    flex-basis: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-calendar-nav {
+    width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+  }
+}
+
 /* Stronger comparison column titles and a distinct Modern AI palette. */
 body .infometry-conversa-product.infometry-conversa-product.infometry-conversa-product .icp-comparison-simple .icp-comparison-table thead th {
   height: 70px !important;
