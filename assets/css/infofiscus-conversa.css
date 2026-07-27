@@ -10508,6 +10508,12 @@ body .infometry-conversa-product .icp-demo-form .wpforms-field-name {
   min-height: 79px !important;
 }
 
+body .infometry-conversa-product .icp-demo-form .wpforms-field-name .wpforms-field-row::before,
+body .infometry-conversa-product .icp-demo-form .wpforms-field-name .wpforms-field-row::after {
+  display: none !important;
+  content: none !important;
+}
+
 /* Refined selected-date confirmation badge. */
 body .infometry-conversa-product .icp-demo-selected-date {
   display: inline-flex !important;
