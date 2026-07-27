@@ -8509,10 +8509,11 @@ body .infometry-conversa-product .icp-demo-form .wpforms-field-name {
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-field-row {
-  display: grid !important;
+  display: flex !important;
   width: 100% !important;
   max-width: none !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: flex-start !important;
+  flex-direction: row !important;
   gap: 16px !important;
 }
 
@@ -8520,11 +8521,22 @@ body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block {
   display: flex !important;
   width: 100% !important;
   max-width: none !important;
+  min-width: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
   float: none !important;
+  clear: none !important;
+  flex: 1 1 0 !important;
   flex-direction: column-reverse !important;
   gap: 9px !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block.wpforms-first {
+  order: 1 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block:not(.wpforms-first) {
+  order: 2 !important;
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-field-label,
@@ -8608,8 +8620,8 @@ body .infometry-conversa-product .icp-demo-form .wpforms-error {
   body .infometry-conversa-product .icp-demo-card,
   body .infometry-conversa-product .icp-demo-form { padding: 22px !important; border-radius: 18px !important; }
   body .infometry-conversa-product .icp-form-row,
-  body .infometry-conversa-product .icp-demo-form .wpforms-field-container,
-  body .infometry-conversa-product .icp-demo-form .wpforms-field-row { grid-template-columns: 1fr !important; }
+  body .infometry-conversa-product .icp-demo-form .wpforms-field-container { grid-template-columns: 1fr !important; }
+  body .infometry-conversa-product .icp-demo-form .wpforms-field-row { flex-direction: column !important; }
   body .infometry-conversa-product .icp-demo-form .wpforms-field-name { grid-column: auto !important; }
 }
 
