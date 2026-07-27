@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Infometry Custom Templates
- * Description: Provides the Infometry homepage and INFOFISCUS Conversa product page templates.
- * Version: 2.2.0
+ * Description: Adds the staging-safe “Home Design Test” page template for the Infometry enterprise homepage.
+ * Version: 2.1.5
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.2.0' );
+define( 'INFOMETRY_CT_VERSION', '2.1.5' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
@@ -26,7 +26,6 @@ define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.ph
 function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_HOME_TEMPLATE ]     = __( 'Home Design Test', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_CONVERSA_TEMPLATE ] = __( 'INFOFISCUS Conversa Product', 'infometry-custom-templates' );
-
 	return $templates;
 }
 add_filter( 'theme_page_templates', 'infometry_ct_register_page_template' );
@@ -76,7 +75,22 @@ function infometry_ct_should_use_template( $template_slug ) {
 		return false;
 	}
 
-	return $template_slug === get_page_template_slug( $page_id );
+	return INFOMETRY_CT_HOME_TEMPLATE === get_page_template_slug( $page_id );
+}
+
+/**
+ * Decide whether the current page has selected the Conversa product template.
+ *
+ * @return bool
+ */
+function infometry_ct_should_use_conversa_template() {
+	$page_id = infometry_ct_get_current_page_id();
+
+	if ( ! $page_id || 'page' !== get_post_type( $page_id ) ) {
+		return false;
+	}
+
+	return INFOMETRY_CT_CONVERSA_TEMPLATE === get_page_template_slug( $page_id );
 }
 
 /**
@@ -108,8 +122,16 @@ function infometry_ct_load_page_template( $template ) {
 
 	if ( infometry_ct_should_use_home_template() ) {
 		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_HOME_TEMPLATE;
-	} elseif ( infometry_ct_should_use_conversa_template() ) {
+		if ( is_readable( $plugin_template ) ) {
+			return $plugin_template;
+		}
+	}
+
+	if ( infometry_ct_should_use_conversa_template() ) {
 		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_CONVERSA_TEMPLATE;
+		if ( is_readable( $plugin_template ) ) {
+			return $plugin_template;
+		}
 	}
 
 	return $plugin_template && is_readable( $plugin_template ) ? $plugin_template : $template;
@@ -139,8 +161,11 @@ add_filter( 'body_class', 'infometry_ct_body_classes' );
 /**
  * Print page-scoped Conversa overrides before cached/minified assets load.
  */
-function infometry_ct_print_conversa_critical_css() {
-	if ( ! infometry_ct_should_use_conversa_template() ) {
+function infometry_ct_enqueue_assets() {
+	$use_home     = infometry_ct_should_use_home_template();
+	$use_conversa = infometry_ct_should_use_conversa_template();
+
+	if ( ! $use_home && ! $use_conversa ) {
 		return;
 	}
 	?>
@@ -199,11 +224,7 @@ function infometry_ct_print_conversa_critical_css() {
 }
 add_action( 'wp_head', 'infometry_ct_print_conversa_critical_css', 1 );
 
-/**
- * Enqueue isolated assets only for the currently selected plugin template.
- */
-function infometry_ct_enqueue_assets() {
-	if ( infometry_ct_should_use_home_template() ) {
+	if ( $use_home ) {
 		$css_path    = INFOMETRY_CT_PATH . 'assets/css/home-design-test.css';
 		$js_path     = INFOMETRY_CT_PATH . 'assets/js/home-design-test.js';
 		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
@@ -225,11 +246,11 @@ function infometry_ct_enqueue_assets() {
 		);
 	}
 
-	if ( infometry_ct_should_use_conversa_template() ) {
+	if ( $use_conversa ) {
 		$css_path    = INFOMETRY_CT_PATH . 'assets/css/infofiscus-conversa.css';
 		$js_path     = INFOMETRY_CT_PATH . 'assets/js/infofiscus-conversa.js';
-		$css_version = INFOMETRY_CT_VERSION . ( is_readable( $css_path ) ? '-' . (string) filemtime( $css_path ) : '' );
-		$js_version  = INFOMETRY_CT_VERSION . ( is_readable( $js_path ) ? '-' . (string) filemtime( $js_path ) : '' );
+		$css_version = is_readable( $css_path ) ? (string) filemtime( $css_path ) : INFOMETRY_CT_VERSION;
+		$js_version  = is_readable( $js_path ) ? (string) filemtime( $js_path ) : INFOMETRY_CT_VERSION;
 
 		wp_enqueue_style(
 			'infometry-infofiscus-conversa',
