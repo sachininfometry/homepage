@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Provides isolated Infometry homepage and INFOFISCUS Conversa page templates.
- * Version: 2.1.7
+ * Version: 2.1.8
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,11 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.1.7' );
+define( 'INFOMETRY_CT_VERSION', '2.1.8' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
 define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.php' );
+define( 'INFOMETRY_CT_CONVERSA_FORM_ID', 379751 );
 
 /**
  * Expose both plugin templates in the WordPress page-template selector.
@@ -141,6 +142,80 @@ function infometry_ct_body_classes( $classes ) {
 	return array_unique( $classes );
 }
 add_filter( 'body_class', 'infometry_ct_body_classes' );
+
+/**
+ * Add the custom scheduling fields inside the existing WPForms form.
+ *
+ * @param array   $form_data Processed WPForms form data.
+ * @param WP_Post $form      WPForms form post.
+ */
+function infometry_ct_render_conversa_form_fields( $form_data, $form ) {
+	if (
+		! infometry_ct_should_use_conversa_template()
+		|| INFOMETRY_CT_CONVERSA_FORM_ID !== absint( $form_data['id'] )
+	) {
+		return;
+	}
+	?>
+	<div class="icp-demo-form-head">
+		<strong><?php esc_html_e( 'Request your personalized demo', 'infometry-custom-templates' ); ?></strong>
+		<p><?php esc_html_e( 'Share your details and our analytics team will connect with you.', 'infometry-custom-templates' ); ?></p>
+	</div>
+	<div class="icp-form-row icp-demo-preferences">
+		<label>
+			<?php esc_html_e( 'Preferred Demo Date', 'infometry-custom-templates' ); ?>
+			<input type="hidden" name="infometry_conversa[preferred_demo_date]" data-icp-demo-date value="">
+			<input type="text" data-icp-demo-date-display readonly required>
+		</label>
+		<label>
+			<?php esc_html_e( 'Preferred Demo Time', 'infometry-custom-templates' ); ?> <span>*</span>
+			<input type="time" name="infometry_conversa[preferred_demo_time]" data-icp-demo-time required>
+		</label>
+	</div>
+	<label class="icp-demo-company">
+		<?php esc_html_e( 'Company', 'infometry-custom-templates' ); ?>
+		<input type="text" name="infometry_conversa[company]" autocomplete="organization">
+	</label>
+	<?php
+}
+add_action( 'wpforms_frontend_output', 'infometry_ct_render_conversa_form_fields', 10, 2 );
+
+/**
+ * Include the custom schedule fields in the existing WPForms notification.
+ *
+ * WPForms Lite sends notifications but does not store entries, so appending
+ * these values to the normal notification keeps every submitted field together.
+ *
+ * @param array $email           Notification attributes.
+ * @param array $fields          Processed WPForms fields.
+ * @param array $entry           Raw entry data.
+ * @param array $form_data       Processed form data.
+ * @param int   $notification_id Notification ID.
+ * @return array
+ */
+function infometry_ct_add_conversa_fields_to_notification( $email, $fields, $entry, $form_data, $notification_id ) {
+	if ( INFOMETRY_CT_CONVERSA_FORM_ID !== absint( $form_data['id'] ) ) {
+		return $email;
+	}
+
+	$details = isset( $_POST['infometry_conversa'] ) && is_array( $_POST['infometry_conversa'] )
+		? wp_unslash( $_POST['infometry_conversa'] )
+		: array();
+
+	$date    = isset( $details['preferred_demo_date'] ) ? sanitize_text_field( $details['preferred_demo_date'] ) : '';
+	$time    = isset( $details['preferred_demo_time'] ) ? sanitize_text_field( $details['preferred_demo_time'] ) : '';
+	$company = isset( $details['company'] ) ? sanitize_text_field( $details['company'] ) : '';
+
+	$extra = '<h3>' . esc_html__( 'Demo preferences', 'infometry-custom-templates' ) . '</h3>';
+	$extra .= '<p><strong>' . esc_html__( 'Preferred Demo Date:', 'infometry-custom-templates' ) . '</strong> ' . esc_html( $date ?: 'Not provided' ) . '<br>';
+	$extra .= '<strong>' . esc_html__( 'Preferred Demo Time:', 'infometry-custom-templates' ) . '</strong> ' . esc_html( $time ?: 'Not provided' ) . '<br>';
+	$extra .= '<strong>' . esc_html__( 'Company:', 'infometry-custom-templates' ) . '</strong> ' . esc_html( $company ?: 'Not provided' ) . '</p>';
+
+	$email['message'] .= $extra;
+
+	return $email;
+}
+add_filter( 'wpforms_entry_email_atts', 'infometry_ct_add_conversa_fields_to_notification', 10, 5 );
 
 /**
  * Print critical Conversa overrides before cached/minified assets load.

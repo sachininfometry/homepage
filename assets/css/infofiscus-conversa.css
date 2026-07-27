@@ -8472,6 +8472,109 @@ body .infometry-conversa-product .icp-demo-form > .icp-button {
   box-shadow: 0 14px 30px rgba(58, 93, 220, .25) !important;
 }
 
+/* Keep the premium form UI while using the site's real WPForms backend. */
+body .infometry-conversa-product .icp-demo-form-host,
+body .infometry-conversa-product .icp-demo-form-host .wpforms-container {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form-host .icp-demo-form {
+  height: 100% !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .icp-demo-form-head {
+  order: 1 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .icp-demo-preferences {
+  order: 2 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-container {
+  display: grid !important;
+  order: 3 !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px 16px !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field {
+  min-width: 0 !important;
+  padding: 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-name {
+  grid-column: 1 / -1 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-row {
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block {
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-label,
+body .infometry-conversa-product .icp-demo-form .wpforms-field-sublabel {
+  color: #18355b !important;
+  font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+  letter-spacing: .01em !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-sublabel {
+  display: block !important;
+  margin: 8px 0 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-required-label {
+  color: #ff430f !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .icp-demo-company {
+  order: 4 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-recaptcha-container {
+  order: 5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-submit-container {
+  order: 6 !important;
+  padding: 0 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-submit {
+  display: flex !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  background: linear-gradient(100deg, #087ff4, #5f59e9 58%, #1db9dc) !important;
+  box-shadow: 0 14px 30px rgba(58, 93, 220, .25) !important;
+  font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-error {
+  color: #c93434 !important;
+  font-size: 12px !important;
+}
+
 @media (max-width: 980px) {
   body .infometry-conversa-product .icp-demo-form-grid {
     width: min(100%, 760px) !important;
@@ -8486,7 +8589,10 @@ body .infometry-conversa-product .icp-demo-form > .icp-button {
   body .infometry-conversa-product .icp-demo-visual { min-height: 0 !important; padding: 18px !important; border-radius: 20px !important; }
   body .infometry-conversa-product .icp-demo-card,
   body .infometry-conversa-product .icp-demo-form { padding: 22px !important; border-radius: 18px !important; }
-  body .infometry-conversa-product .icp-form-row { grid-template-columns: 1fr !important; }
+  body .infometry-conversa-product .icp-form-row,
+  body .infometry-conversa-product .icp-demo-form .wpforms-field-container,
+  body .infometry-conversa-product .icp-demo-form .wpforms-field-row { grid-template-columns: 1fr !important; }
+  body .infometry-conversa-product .icp-demo-form .wpforms-field-name { grid-column: auto !important; }
 }
 
 body .infometry-conversa-product .icp-comparison-simple .icp-comparison-table thead th:first-child {

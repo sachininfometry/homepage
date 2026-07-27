@@ -6,7 +6,11 @@
     return;
   }
 
-  var demoForm = root.querySelector('.icp-demo-form');
+  var demoForm = root.querySelector('#wpforms-form-379751, .icp-demo-form');
+  if (demoForm) {
+    demoForm.classList.add('icp-demo-form');
+    demoForm.id = 'icp-demo-request-form';
+  }
   if (demoForm && !demoForm.querySelector('.icp-demo-form-head')) {
     var demoFormHead = document.createElement('div');
     demoFormHead.className = 'icp-demo-form-head';
@@ -174,7 +178,7 @@
     });
   });
 
-  var demoForm = root.querySelector('#icp-demo-request-form');
+  var demoForm = root.querySelector('#icp-demo-request-form, #wpforms-form-379751');
   var demoDateInput = root.querySelector('[data-icp-demo-date]');
   var demoDateDisplayInput = root.querySelector('[data-icp-demo-date-display]');
   var demoTimeInput = root.querySelector('[data-icp-demo-time]');

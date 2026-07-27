@@ -523,27 +523,20 @@ $other_products = array(
 						</div>
 					</div>
 				</div>
-				<form class="icp-demo-form" id="icp-demo-request-form" action="<?php echo esc_url( $demo_url ); ?>" method="post">
-					<input type="hidden" name="selected_demo_date" data-icp-demo-date value="">
-					<div class="icp-demo-form-head">
-						<strong>Request your personalized demo</strong>
-						<p>Share your details and our analytics team will connect with you.</p>
-					</div>
-					<div class="icp-form-row">
-						<label>Preferred Demo Date<input type="text" name="preferred_demo_date" data-icp-demo-date-display readonly></label>
-						<label>Preferred Demo Time<input type="time" name="preferred_demo_time" data-icp-demo-time required></label>
-					</div>
-					<div class="icp-form-row">
-						<label>First Name <span>*</span><input type="text" name="first_name" autocomplete="given-name" required></label>
-						<label>Last Name <span>*</span><input type="text" name="last_name" autocomplete="family-name" required></label>
-					</div>
-					<div class="icp-form-row">
-						<label>Company Email <span>*</span><input type="email" name="company_email" autocomplete="email" required></label>
-						<label>Contact Number <span>*</span><input type="tel" name="contact_number" autocomplete="tel" required></label>
-					</div>
-					<label>Company<input type="text" name="company" autocomplete="organization"></label>
-					<button class="icp-button icp-button-primary" type="submit">Book a Demo</button>
-				</form>
+				<div class="icp-demo-form-host" data-icp-wpforms-host>
+					<?php if ( shortcode_exists( 'wpforms' ) ) : ?>
+						<?php echo do_shortcode( '[wpforms id="379751" title="false" description="false" ajax="true"]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php else : ?>
+						<div class="icp-demo-form icp-demo-form-fallback">
+							<div class="icp-demo-form-head">
+								<strong>Request your personalized demo</strong>
+								<p>Share your details and our analytics team will connect with you.</p>
+							</div>
+							<p>The request form is temporarily unavailable.</p>
+							<a class="icp-button icp-button-primary" href="<?php echo esc_url( $contact_url ); ?>">Contact Us</a>
+						</div>
+					<?php endif; ?>
+				</div>
 			</div>
 		</div>
 	</section>
