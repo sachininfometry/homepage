@@ -8558,11 +8558,14 @@ body .infometry-conversa-product .icp-demo-form .wpforms-field-medium,
 body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block input {
   width: 100% !important;
   max-width: none !important;
+  height: 54px !important;
+  min-height: 54px !important;
   margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-field-name > .wpforms-field-label {
-  margin: 0 0 9px !important;
+  display: none !important;
 }
 
 body .infometry-conversa-product .icp-demo-form .wpforms-required-label {
@@ -10485,6 +10488,19 @@ body .infometry-conversa-product .icp-demo-form > .icp-button {
   body .infometry-conversa-product .icp-demo-calendar {
     padding: 18px 14px !important;
   }
+}
+
+/* WPForms compound-name inputs must not inherit the generic 100% flex basis. */
+body .infometry-conversa-product .icp-demo-form .wpforms-field-name .wpforms-field-row-block > input {
+  width: 100% !important;
+  height: 54px !important;
+  min-height: 54px !important;
+  flex: none !important;
+  box-sizing: border-box !important;
+}
+
+body .infometry-conversa-product .icp-demo-form .wpforms-field-name {
+  min-height: 79px !important;
 }
 
 /* Refined selected-date confirmation badge. */

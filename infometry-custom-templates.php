@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Provides isolated Infometry homepage and INFOFISCUS Conversa page templates.
- * Version: 2.1.10
+ * Version: 2.1.11
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.1.10' );
+define( 'INFOMETRY_CT_VERSION', '2.1.11' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
@@ -216,6 +216,59 @@ function infometry_ct_add_conversa_fields_to_notification( $email, $fields, $ent
 	return $email;
 }
 add_filter( 'wpforms_entry_email_atts', 'infometry_ct_add_conversa_fields_to_notification', 10, 5 );
+
+/**
+ * Identify Cloudways' temporary application hostname.
+ *
+ * The production reCAPTCHA key is valid on infometry.net but Google rejects it
+ * on the temporary cloudwaysapps.com hostname used for staging previews.
+ *
+ * @return bool
+ */
+function infometry_ct_is_cloudways_staging_host() {
+	$host = isset( $_SERVER['HTTP_HOST'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) ) : '';
+	$host = preg_replace( '/:\d+$/', '', $host );
+
+	return $host && (
+		'cloudwaysapps.com' === $host
+		|| '.cloudwaysapps.com' === substr( $host, -18 )
+	);
+}
+
+/**
+ * Do not initialize the production reCAPTCHA key on the Cloudways preview.
+ *
+ * @param bool $disabled Whether CAPTCHA assets are disabled.
+ * @return bool
+ */
+function infometry_ct_disable_staging_recaptcha( $disabled ) {
+	if ( infometry_ct_is_cloudways_staging_host() && infometry_ct_should_use_conversa_template() ) {
+		return true;
+	}
+
+	return $disabled;
+}
+add_filter( 'wpforms_frontend_recaptcha_disable', 'infometry_ct_disable_staging_recaptcha' );
+
+/**
+ * Match frontend CAPTCHA behavior during WPForms processing on staging.
+ *
+ * @param bool  $bypass    Whether CAPTCHA verification is bypassed.
+ * @param array $entry     Raw entry data.
+ * @param array $form_data Processed form data.
+ * @return bool
+ */
+function infometry_ct_bypass_staging_recaptcha( $bypass, $entry, $form_data ) {
+	if (
+		infometry_ct_is_cloudways_staging_host()
+		&& INFOMETRY_CT_CONVERSA_FORM_ID === absint( $form_data['id'] )
+	) {
+		return true;
+	}
+
+	return $bypass;
+}
+add_filter( 'wpforms_process_bypass_captcha', 'infometry_ct_bypass_staging_recaptcha', 10, 3 );
 
 /**
  * Print critical Conversa overrides before cached/minified assets load.
