@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Infometry Custom Templates
  * Description: Provides isolated Infometry homepage and INFOFISCUS Conversa page templates.
- * Version: 2.1.11
+ * Version: 2.1.12
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.1.11' );
+define( 'INFOMETRY_CT_VERSION', '2.1.12' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
@@ -142,6 +142,34 @@ function infometry_ct_body_classes( $classes ) {
 	return array_unique( $classes );
 }
 add_filter( 'body_class', 'infometry_ct_body_classes' );
+
+/**
+ * Set production-safe labels on the existing WPForms name field.
+ *
+ * @param array $properties Rendered field properties.
+ * @param array $field      WPForms field data.
+ * @param array $form_data  WPForms form data.
+ * @return array
+ */
+function infometry_ct_conversa_name_field_properties( $properties, $field, $form_data ) {
+	if (
+		INFOMETRY_CT_CONVERSA_FORM_ID !== absint( $form_data['id'] )
+		|| 0 !== absint( $field['id'] )
+	) {
+		return $properties;
+	}
+
+	if ( isset( $properties['inputs']['first']['sublabel']['value'] ) ) {
+		$properties['inputs']['first']['sublabel']['value'] = __( 'First Name', 'infometry-custom-templates' );
+	}
+
+	if ( isset( $properties['inputs']['last']['sublabel']['value'] ) ) {
+		$properties['inputs']['last']['sublabel']['value'] = __( 'Last Name', 'infometry-custom-templates' );
+	}
+
+	return $properties;
+}
+add_filter( 'wpforms_field_properties_name', 'infometry_ct_conversa_name_field_properties', 10, 3 );
 
 /**
  * Add the custom scheduling fields inside the existing WPForms form.

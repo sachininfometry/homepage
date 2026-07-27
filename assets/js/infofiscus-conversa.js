@@ -10,15 +10,6 @@
   if (demoForm) {
     demoForm.classList.add('icp-demo-form');
     demoForm.id = 'icp-demo-request-form';
-
-    var firstNameLabel = demoForm.querySelector('.wpforms-first .wpforms-field-sublabel');
-    var lastNameLabel = demoForm.querySelector('.wpforms-field-row-block:not(.wpforms-first) .wpforms-field-sublabel');
-    if (firstNameLabel) {
-      firstNameLabel.innerHTML = 'First Name <span class="wpforms-required-label">*</span>';
-    }
-    if (lastNameLabel) {
-      lastNameLabel.innerHTML = 'Last Name <span class="wpforms-required-label">*</span>';
-    }
   }
   if (demoForm && !demoForm.querySelector('.icp-demo-form-head')) {
     var demoFormHead = document.createElement('div');

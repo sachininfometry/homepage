@@ -8553,6 +8553,11 @@ body .infometry-conversa-product .icp-demo-form .wpforms-field-sublabel {
   margin: 0 !important;
 }
 
+body .infometry-conversa-product .icp-demo-form .wpforms-field-name .wpforms-field-sublabel::after {
+  content: " *" !important;
+  color: #ff430f !important;
+}
+
 body .infometry-conversa-product .icp-demo-form .wpforms-field input,
 body .infometry-conversa-product .icp-demo-form .wpforms-field-medium,
 body .infometry-conversa-product .icp-demo-form .wpforms-field-row-block input {
