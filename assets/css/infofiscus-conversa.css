@@ -6026,6 +6026,55 @@ body .infometry-conversa-product .icp-personas .icp-persona-tags span {
   white-space: nowrap !important;
 }
 
+/* Mobile intro benefit-card containment (kept last to beat legacy refinements). */
+@media (max-width: 900px) {
+  body .infometry-conversa-product.infometry-conversa-product .icp-intro > .icp-shell.icp-intro-grid {
+    width: auto !important;
+    max-width: none !important;
+    margin-inline: 14px !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body .infometry-conversa-product.infometry-conversa-product .icp-intro-value-row {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body .infometry-conversa-product.infometry-conversa-product .icp-intro-value-row article {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 18px !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    overflow: hidden !important;
+  }
+
+  body .infometry-conversa-product.infometry-conversa-product .icp-intro-value-row article > span {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    flex-basis: 48px !important;
+  }
+
+  body .infometry-conversa-product.infometry-conversa-product .icp-intro-value-row article > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  body .infometry-conversa-product.infometry-conversa-product .icp-intro-value-row article strong,
+  body .infometry-conversa-product.infometry-conversa-product .icp-intro-value-row article small {
+    display: block !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+}
+
 /* Final phone/tablet layout. Desktop rules above 900px remain unchanged. */
 @media (max-width: 900px) {
   body .infometry-conversa-product {
@@ -6144,6 +6193,9 @@ body .infometry-conversa-product .icp-personas .icp-persona-tags span {
 
   body .infometry-conversa-product .icp-intro > .icp-shell.icp-intro-grid {
     display: grid !important;
+    width: auto !important;
+    max-width: none !important;
+    margin-inline: 14px !important;
     grid-template-columns: minmax(0, 1fr) !important;
     gap: 28px !important;
     padding-block: 58px !important;
@@ -6190,8 +6242,34 @@ body .infometry-conversa-product .icp-personas .icp-persona-tags span {
   }
 
   body .infometry-conversa-product .icp-intro-value-row article {
+    width: 100% !important;
+    max-width: 100% !important;
     min-height: 0 !important;
     padding: 20px !important;
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-value-row article > span {
+    width: 48px !important;
+    height: 48px !important;
+    flex-basis: 48px !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-value-row article > div {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  body .infometry-conversa-product .icp-intro-value-row article strong,
+  body .infometry-conversa-product .icp-intro-value-row article small {
+    display: block !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
   }
 
   body .infometry-conversa-product .icp-card-grid.icp-four,
