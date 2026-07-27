@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Infometry Custom Templates
- * Description: Adds the staging-safe “Home Design Test” page template for the Infometry enterprise homepage.
- * Version: 2.1.5
+ * Description: Provides isolated Infometry homepage and INFOFISCUS Conversa page templates.
+ * Version: 2.1.6
  * Author: Infometry
  * Text Domain: infometry-custom-templates
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INFOMETRY_CT_VERSION', '2.1.5' );
+define( 'INFOMETRY_CT_VERSION', '2.1.6' );
 define( 'INFOMETRY_CT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'INFOMETRY_CT_URL', plugin_dir_url( __FILE__ ) );
 define( 'INFOMETRY_CT_HOME_TEMPLATE', 'templates/page-home-design-test.php' );
@@ -26,6 +26,7 @@ define( 'INFOMETRY_CT_CONVERSA_TEMPLATE', 'templates/page-infofiscus-conversa.ph
 function infometry_ct_register_page_template( $templates ) {
 	$templates[ INFOMETRY_CT_HOME_TEMPLATE ]     = __( 'Home Design Test', 'infometry-custom-templates' );
 	$templates[ INFOMETRY_CT_CONVERSA_TEMPLATE ] = __( 'INFOFISCUS Conversa Product', 'infometry-custom-templates' );
+
 	return $templates;
 }
 add_filter( 'theme_page_templates', 'infometry_ct_register_page_template' );
@@ -75,22 +76,7 @@ function infometry_ct_should_use_template( $template_slug ) {
 		return false;
 	}
 
-	return INFOMETRY_CT_HOME_TEMPLATE === get_page_template_slug( $page_id );
-}
-
-/**
- * Decide whether the current page has selected the Conversa product template.
- *
- * @return bool
- */
-function infometry_ct_should_use_conversa_template() {
-	$page_id = infometry_ct_get_current_page_id();
-
-	if ( ! $page_id || 'page' !== get_post_type( $page_id ) ) {
-		return false;
-	}
-
-	return INFOMETRY_CT_CONVERSA_TEMPLATE === get_page_template_slug( $page_id );
+	return $template_slug === get_page_template_slug( $page_id );
 }
 
 /**
@@ -118,8 +104,6 @@ function infometry_ct_should_use_conversa_template() {
  * @return string
  */
 function infometry_ct_load_page_template( $template ) {
-	$plugin_template = '';
-
 	if ( infometry_ct_should_use_home_template() ) {
 		$plugin_template = INFOMETRY_CT_PATH . INFOMETRY_CT_HOME_TEMPLATE;
 		if ( is_readable( $plugin_template ) ) {
@@ -134,7 +118,7 @@ function infometry_ct_load_page_template( $template ) {
 		}
 	}
 
-	return $plugin_template && is_readable( $plugin_template ) ? $plugin_template : $template;
+	return $template;
 }
 add_filter( 'page_template', 'infometry_ct_load_page_template', PHP_INT_MAX );
 add_filter( 'template_include', 'infometry_ct_load_page_template', PHP_INT_MAX );
@@ -159,7 +143,7 @@ function infometry_ct_body_classes( $classes ) {
 add_filter( 'body_class', 'infometry_ct_body_classes' );
 
 /**
- * Print page-scoped Conversa overrides before cached/minified assets load.
+ * Enqueue isolated assets only for the currently selected plugin template.
  */
 function infometry_ct_enqueue_assets() {
 	$use_home     = infometry_ct_should_use_home_template();
@@ -168,61 +152,6 @@ function infometry_ct_enqueue_assets() {
 	if ( ! $use_home && ! $use_conversa ) {
 		return;
 	}
-	?>
-	<style id="infometry-conversa-critical-css">
-		body.infometry-conversa-product-page #Footer,
-		body.infometry-conversa-product-page #Footer_wrapper,
-		body.infometry-conversa-product-page .mfn-footer,
-		body.infometry-conversa-product-page footer#Footer,
-		body.infometry-conversa-product-page #mfn-rev-slider,
-		body.infometry-conversa-product-page .mfn-rev-slider,
-		body.infometry-conversa-product-page rs-module-wrap,
-		body.infometry-conversa-product-page .forcefullwidth_wrapper_tp_banner,
-		body.infometry-conversa-product-page .rev_slider_wrapper,
-		body.infometry-conversa-product-page [id^="rev_slider_"][id$="_wrapper"],
-		body.infometry-conversa-product-page [id^="rev_slider_"][id$="_forcefullwidth"] {
-			display: none !important;
-			height: 0 !important;
-			min-height: 0 !important;
-			padding: 0 !important;
-			margin: 0 !important;
-			overflow: hidden !important;
-		}
-		body.infometry-conversa-product-page .infometry-conversa-product .icp-product-footer {
-			display: block !important;
-			height: auto !important;
-			min-height: 0 !important;
-			overflow: hidden;
-		}
-		body.infometry-conversa-product-page .infometry-conversa-product .icp-shell {
-			width: min(100% - 64px, 1400px);
-		}
-		body.infometry-conversa-product-page .infometry-conversa-product .icp-hero-grid {
-			grid-template-columns: minmax(520px, .82fr) minmax(660px, 1.18fr);
-			gap: 72px;
-			padding-top: 126px;
-		}
-		body.infometry-conversa-product-page .infometry-conversa-product .icp-hero h1 {
-			max-width: 640px;
-		}
-		@media (max-width: 1280px) {
-			body.infometry-conversa-product-page .infometry-conversa-product .icp-hero-grid {
-				grid-template-columns: 1fr;
-			}
-		}
-		@media (max-width: 860px) {
-			body.infometry-conversa-product-page .infometry-conversa-product .icp-shell {
-				width: min(100% - 32px, 1180px);
-			}
-			body.infometry-conversa-product-page .infometry-conversa-product .icp-hero-grid {
-				gap: 34px;
-				padding-top: 118px;
-			}
-		}
-	</style>
-	<?php
-}
-add_action( 'wp_head', 'infometry_ct_print_conversa_critical_css', 1 );
 
 	if ( $use_home ) {
 		$css_path    = INFOMETRY_CT_PATH . 'assets/css/home-design-test.css';
