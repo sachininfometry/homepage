@@ -282,7 +282,7 @@ $other_products = array(
 					</div>
 				</div>
 			</div>
-			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language Analytics</strong><small>Ask complex business questions without SQL.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Trusted Semantic Answers</strong><small>Use consistent metrics powered by your enterprise semantic layer.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>AI Decision Intelligence</strong><small>Understand trends, anomalies, drivers, and recommendations instantly.</small></div></article></div>
+			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language</strong><small>Ask business questions naturally without SQL.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Semantic Answers</strong><small>Get consistent answers from governed metrics.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Decision Intelligence</strong><small>Understand trends, drivers, and next actions.</small></div></article></div>
 		</div>
 	</section>
 
