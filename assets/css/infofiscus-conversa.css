@@ -6911,6 +6911,79 @@ body .infometry-conversa-product .icp-footer-bottom p {
   }
 }
 
+/*
+ * Desktop browser zoom (150%+): retain the approved five-card persona row.
+ * Pointer/hover guards keep the real touch-mobile layout unchanged.
+ */
+@media (min-resolution: 1.4dppx) and (max-width: 1100px) and (hover: hover) and (pointer: fine) {
+  body .infometry-conversa-product .icp-personas .icp-shell {
+    width: calc(100% - 24px) !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-card {
+    min-height: 340px !important;
+    padding: 14px 10px 12px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-card .icp-icon {
+    width: 36px !important;
+    height: 36px !important;
+    flex-basis: 36px !important;
+    margin-bottom: 10px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-card h3 {
+    min-height: 32px !important;
+    margin-bottom: 6px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-card > p {
+    min-height: 62px !important;
+    margin-bottom: 9px !important;
+    font-size: 9.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits {
+    min-height: 104px !important;
+    grid-template-rows: repeat(3, minmax(30px, 1fr)) !important;
+    gap: 5px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits li {
+    min-height: 30px !important;
+    padding: 5px 5px 5px 25px !important;
+    font-size: 8px !important;
+    line-height: 1.12 !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits li::before {
+    left: 6px !important;
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 8px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags {
+    min-height: 24px !important;
+    gap: 2px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags span {
+    min-height: 23px !important;
+    padding-inline: 1px !important;
+    font-size: 6.5px !important;
+    line-height: 1 !important;
+  }
+}
+
 /* Premium workflow icon finish: jewel gradients, glass depth and vivid idle state. */
 body .infometry-conversa-product .icp-step-icon {
   overflow: hidden !important;
@@ -11050,5 +11123,177 @@ body .infometry-conversa-product :is(
   body .infometry-conversa-product .icp-personas .icp-persona-tags {
     min-height: 32px !important;
     align-self: stretch !important;
+  }
+}
+
+/*
+ * Zoomed desktop readability.
+ * Keep the approved component structure intact; only scale the contents when
+ * browser zoom reduces the available CSS viewport.
+ */
+@media (min-width: 701px) and (max-width: 1366px) and (min-resolution: 1.4dppx) and (hover: hover) and (pointer: fine) {
+  body .infometry-conversa-product .icp-personas {
+    padding-bottom: 48px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags {
+    gap: 3px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags span {
+    min-height: 27px !important;
+    padding-inline: 2px !important;
+    font-size: clamp(7.5px, .64vw, 8.5px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-icons {
+    column-gap: 0 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-icons > span {
+    min-height: 58px !important;
+    padding-inline: clamp(4px, .7vw, 10px) !important;
+    gap: 6px !important;
+    font-size: clamp(8px, .72vw, 9.5px) !important;
+    line-height: 1.22 !important;
+  }
+
+  body .infometry-conversa-product .icp-hero .icp-hero-icons svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card {
+    flex-basis: clamp(220px, 18vw, 250px) !important;
+    min-height: 420px !important;
+    padding: 22px 16px 18px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card .icp-icon {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card h3 {
+    font-size: 15px !important;
+    line-height: 1.32 !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-card > p {
+    font-size: 11.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-list li {
+    font-size: 10.5px !important;
+    line-height: 1.3 !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-kicker {
+    font-size: 8.5px !important;
+    line-height: 1.15 !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-benefits {
+    min-height: 108px !important;
+    margin-bottom: 12px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-benefits li {
+    min-height: 34px !important;
+    padding: 6px 7px 6px 30px !important;
+    font-size: 10.5px !important;
+    line-height: 1.2 !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-benefits li::before {
+    left: 7px !important;
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 9px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-tags {
+    display: grid !important;
+    width: 100% !important;
+    min-height: 27px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 3px !important;
+  }
+
+  body .infometry-conversa-product .icp-capabilities .icp-feature-tags span {
+    min-width: 0 !important;
+    min-height: 27px !important;
+    padding-inline: 2px !important;
+    justify-content: center !important;
+    font-size: clamp(7.5px, .64vw, 8.5px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.035em !important;
+  }
+}
+
+/* Keep every capability title on the same top baseline at every desktop zoom. */
+body .infometry-conversa-product .icp-capabilities .icp-feature-card h3 {
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+
+/*
+ * 175%-zoom / narrow desktop safeguard.
+ * Preserve the approved artwork, but let its internal architecture stack
+ * instead of squeezing fixed columns into a phone-sized CSS viewport.
+ */
+@media (max-width: 700px) {
+  body .infometry-conversa-product .icp-intro-video-frame.icp-architecture-frame {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture {
+    min-height: 0 !important;
+    padding: 18px 12px 22px !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture-query {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 16px !important;
+    padding: 10px 12px !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture-sources {
+    grid-column: auto !important;
+    gap: 8px 6px !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture-engine {
+    width: min(100%, 300px) !important;
+    min-height: 210px !important;
+    margin-inline: auto !important;
+  }
+
+  body .infometry-conversa-product .icp-architecture-flow {
+    width: 100% !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-form-section {
+    overflow-x: clip !important;
+  }
+
+  body .infometry-conversa-product .icp-demo-calendar-head {
+    min-width: 0 !important;
+    gap: 8px !important;
   }
 }
