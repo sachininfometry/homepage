@@ -16,28 +16,28 @@ $demo_url    = apply_filters( 'infometry_conversa_demo_url', home_url( '/infofis
 $contact_url = apply_filters( 'infometry_conversa_contact_url', home_url( '/contact-us/' ) );
 
 $problems = array(
-	array( 'icon' => 'gauge', 'title' => 'Too many dashboards', 'copy' => 'Teams struggle to find the right view or build the right report.' ),
-	array( 'icon' => 'chart', 'title' => 'Slow time to insights', 'copy' => 'IT bottlenecks and manual queries delay critical decisions.' ),
-	array( 'icon' => 'bolt', 'title' => 'Complex tools', 'copy' => 'Powerful platforms, but hard for non-technical users.' ),
-	array( 'icon' => 'shield', 'title' => 'Untrusted answers', 'copy' => 'Inconsistent metrics and siloed data erode trust.' ),
+	array( 'icon' => 'gauge', 'title' => 'Dashboard Overload', 'copy' => 'Teams spend more time searching for reports than making decisions.' ),
+	array( 'icon' => 'chart', 'title' => 'Slow Analytics', 'copy' => 'Waiting on analysts delays business-critical decisions.' ),
+	array( 'icon' => 'bolt', 'title' => 'SQL Dependency', 'copy' => 'Business users rely on technical teams for every new question.' ),
+	array( 'icon' => 'shield', 'title' => 'Inconsistent Metrics', 'copy' => 'Different reports produce different answers, reducing trust.' ),
 );
 
 $capabilities = array(
-	array( 'icon' => 'chat', 'class' => 'is-natural-language', 'kicker' => 'Conversational Analytics', 'title' => 'Natural Language Analytics', 'copy' => 'Ask complex business questions in plain English and receive accurate, governed answers instantly.', 'benefits' => array( 'Understand business intent', 'Answer follow-up questions', 'Deliver governed responses' ), 'tags' => array( 'Natural Language', 'Instant Answers' ) ),
-	array( 'icon' => 'brain', 'class' => 'is-ai-insights', 'kicker' => 'AI Intelligence', 'title' => 'AI-Powered Insights', 'copy' => 'Summarize performance, explain key drivers, and automatically surface the insights that matter most.', 'benefits' => array( 'Summarize key changes', 'Explain root causes', 'Recommend next actions' ), 'tags' => array( 'Smart Summary', 'Root Cause' ) ),
-	array( 'icon' => 'nodes', 'class' => 'is-connectivity', 'kicker' => 'Unified Data', 'title' => 'Enterprise Data Connectivity', 'copy' => 'Connect securely to warehouses, data lakes, databases, and business applications across your ecosystem.', 'benefits' => array( 'Connect multiple sources', 'Query live enterprise data', 'Scale across platforms' ), 'tags' => array( 'Multi-Source', 'Live Data' ) ),
-	array( 'icon' => 'lock', 'class' => 'is-governance', 'kicker' => 'Trusted Governance', 'title' => 'Semantic Layer & Governance', 'copy' => 'Standardize business definitions, permissions, and metrics so every team works from trusted answers.', 'benefits' => array( 'Standardize business metrics', 'Apply role-based access', 'Maintain trusted definitions' ), 'tags' => array( 'Governed Metrics', 'Role Access' ) ),
-	array( 'icon' => 'spark', 'class' => 'is-visuals', 'kicker' => 'Visual Exploration', 'title' => 'Interactive Visualizations', 'copy' => 'Turn every answer into clear charts, trends, and drill-down views built for faster business exploration.', 'benefits' => array( 'Generate clear visuals', 'Explore trends interactively', 'Drill into business drivers' ), 'tags' => array( 'Dynamic Charts', 'Drill Down' ) ),
-	array( 'icon' => 'eye', 'class' => 'is-sql', 'kicker' => 'Explainable Analytics', 'title' => 'SQL Transparency', 'copy' => 'Inspect the generated SQL behind every answer for complete visibility, validation, and enterprise control.', 'benefits' => array( 'Inspect generated SQL', 'Validate every answer', 'Support audit readiness' ), 'tags' => array( 'Visible SQL', 'Audit Ready' ) ),
-	array( 'icon' => 'monitor', 'class' => 'is-monitoring', 'kicker' => 'Proactive Intelligence', 'title' => 'Alerts & Monitoring', 'copy' => 'Monitor critical KPIs, detect meaningful changes, and notify teams before business issues escalate.', 'benefits' => array( 'Track critical KPIs', 'Detect meaningful changes', 'Notify teams proactively' ), 'tags' => array( 'Smart Alerts', 'KPI Watch' ) ),
-	array( 'icon' => 'api', 'class' => 'is-automation', 'kicker' => 'Embedded Analytics', 'title' => 'APIs & Automation', 'copy' => 'Embed governed intelligence into applications and automate repeatable decisions across business workflows.', 'benefits' => array( 'Embed secure analytics', 'Automate repeatable actions', 'Integrate business workflows' ), 'tags' => array( 'Secure APIs', 'Workflows' ) ),
+	array( 'icon' => 'chat', 'class' => 'is-natural-language', 'kicker' => 'Conversational Analytics', 'title' => 'Natural Language to SQL Engine', 'copy' => 'Turn business questions into optimized SQL using semantic context and live enterprise data.', 'benefits' => array( 'Understand business intent', 'Generate optimized SQL', 'Query live enterprise data' ), 'tags' => array( 'Natural Language', 'Live Data' ) ),
+	array( 'icon' => 'brain', 'class' => 'is-ai-insights', 'kicker' => 'AI Intelligence', 'title' => 'Multi-Model AI Analytics', 'copy' => 'Use OpenAI, Claude, Gemini, and enterprise models across conversational analytics workloads.', 'benefits' => array( 'Choose the right AI model', 'Analyze complex questions', 'Deliver flexible insights' ), 'tags' => array( 'Multi-Model AI', 'Trusted Answers' ) ),
+	array( 'icon' => 'chart', 'class' => 'is-connectivity', 'kicker' => 'Advanced Intelligence', 'title' => 'Advanced Analytics', 'copy' => 'Uncover trends, root causes, and business drivers beyond traditional dashboards and reports.', 'benefits' => array( 'Detect trends and anomalies', 'Explain root causes', 'Surface business drivers' ), 'tags' => array( 'Root Cause', 'Trend Analysis' ) ),
+	array( 'icon' => 'spark', 'class' => 'is-governance', 'kicker' => 'Enterprise Knowledge', 'title' => 'AI Document Intelligence', 'copy' => 'Search PDFs, contracts, and documents to discover trusted enterprise knowledge instantly.', 'benefits' => array( 'Search enterprise documents', 'Find trusted knowledge', 'Summarize key information' ), 'tags' => array( 'Document AI', 'Enterprise Search' ) ),
+	array( 'icon' => 'nodes', 'class' => 'is-visuals', 'kicker' => 'Trusted Data', 'title' => 'Semantic Layer for Trusted Data', 'copy' => 'Keep metrics consistent with semantic models, business definitions, and governed relationships.', 'benefits' => array( 'Standardize business metrics', 'Apply shared definitions', 'Deliver consistent answers' ), 'tags' => array( 'Semantic Models', 'Governed Metrics' ) ),
+	array( 'icon' => 'lock', 'class' => 'is-sql', 'kicker' => 'Secure Analytics', 'title' => 'Security and Governance', 'copy' => 'Protect data with role-based access, encryption, audit trails, and secure warehouse connections.', 'benefits' => array( 'Enforce role-based access', 'Maintain audit trails', 'Secure warehouse access' ), 'tags' => array( 'Enterprise Security', 'Governance' ) ),
+	array( 'icon' => 'monitor', 'class' => 'is-monitoring', 'kicker' => 'Native Experience', 'title' => 'Native Desktop Application', 'copy' => 'Access secure, high-performance conversational analytics on Windows and macOS.', 'benefits' => array( 'Use a native application', 'Work securely on desktop', 'Support Windows and macOS' ), 'tags' => array( 'Native Desktop', 'Secure Access' ) ),
+	array( 'icon' => 'bolt', 'class' => 'is-automation', 'kicker' => 'Business Efficiency', 'title' => 'Cost Optimization & Faster Insights', 'copy' => 'Reduce reporting costs, remove bottlenecks, and accelerate decisions across teams.', 'benefits' => array( 'Reduce reporting effort', 'Remove analytics bottlenecks', 'Accelerate decisions' ), 'tags' => array( 'Cost Optimization', 'Faster Insights' ) ),
 );
 
 $steps = array(
-	array( 'icon' => 'chat', 'title' => '1. Ask', 'copy' => 'Ask a business question in plain English.' ),
-	array( 'icon' => 'database', 'title' => '2. Understand', 'copy' => 'AI understands your intent and analyzes the data.' ),
-	array( 'icon' => 'chart', 'title' => '3. Answer', 'copy' => 'Get accurate insights with visuals and explanations.' ),
-	array( 'icon' => 'check', 'title' => '4. Act', 'copy' => 'Use insights to drive decisions and outcomes.' ),
+	array( 'icon' => 'chat', 'title' => '1. Ask Naturally', 'copy' => 'Ask questions in everyday business language.' ),
+	array( 'icon' => 'database', 'title' => '2. Understand Context', 'copy' => 'AI applies semantic models and business logic.' ),
+	array( 'icon' => 'chart', 'title' => '3. Generate Trusted Insights', 'copy' => 'Analyze live data with AI-powered explanations.' ),
+	array( 'icon' => 'check', 'title' => '4. Take Confident Action', 'copy' => 'Make faster decisions with trusted recommendations.' ),
 );
 
 $outcomes = array(
@@ -48,11 +48,11 @@ $outcomes = array(
 );
 
 $personas = array(
-	array( 'icon' => 'executive', 'class' => 'is-executive', 'title' => 'Executives', 'copy' => 'Track business performance, uncover critical drivers, and make confident strategic decisions in real time.', 'benefits' => array( 'Monitor enterprise KPIs', 'Explain performance changes', 'Act on trusted recommendations' ), 'tags' => array( 'Executive KPIs', 'Decision Intelligence' ) ),
-	array( 'icon' => 'users', 'class' => 'is-business-user', 'title' => 'Business Users', 'copy' => 'Explore trusted enterprise data in everyday language without waiting for dashboards or technical support.', 'benefits' => array( 'Ask questions naturally', 'Get instant governed answers', 'Share insight-rich storybooks' ), 'tags' => array( 'Self-Service', 'Instant Answers' ) ),
-	array( 'icon' => 'analyst', 'class' => 'is-data-analyst', 'title' => 'Data Analysts', 'copy' => 'Move from questions to deeper analysis with transparent SQL, interactive visuals, and explainable insights.', 'benefits' => array( 'Inspect generated SQL', 'Explore trends and anomalies', 'Build reusable analysis flows' ), 'tags' => array( 'Deep Analysis', 'SQL Visibility' ) ),
-	array( 'icon' => 'finance', 'class' => 'is-finance-team', 'title' => 'Finance Teams', 'copy' => 'Analyze performance, explain variance, monitor cash flow, and forecast business outcomes with speed.', 'benefits' => array( 'Analyze budget variance', 'Track financial performance', 'Accelerate planning cycles' ), 'tags' => array( 'Variance Analysis', 'Forecasting' ) ),
-	array( 'icon' => 'it', 'class' => 'is-it-data', 'title' => 'IT & Data Teams', 'copy' => 'Deliver secure, governed analytics while maintaining permissions, metric consistency, and platform reliability.', 'benefits' => array( 'Enforce data permissions', 'Govern metrics and models', 'Monitor secure AI access' ), 'tags' => array( 'Data Governance', 'Enterprise Security' ) ),
+	array( 'icon' => 'executive', 'class' => 'is-executive', 'title' => 'CIOs, CDOs & Executives', 'copy' => 'Scale governed AI access, track enterprise performance, and make faster strategic decisions.', 'benefits' => array( 'Govern enterprise AI', 'Monitor enterprise KPIs', 'Ensure security and compliance' ), 'tags' => array( 'AI Governance', 'Decision Intelligence' ) ),
+	array( 'icon' => 'users', 'class' => 'is-business-user', 'title' => 'Business Users', 'copy' => 'Explore enterprise data naturally without SQL, dashboards, or technical support.', 'benefits' => array( 'Ask questions naturally', 'Get instant governed answers', 'Explore business insights' ), 'tags' => array( 'Self-Service Analytics', 'Natural Language AI' ) ),
+	array( 'icon' => 'analyst', 'class' => 'is-data-analyst', 'title' => 'Data Analysts', 'copy' => 'Accelerate analysis with AI-generated SQL, transparent queries, and explainable insights.', 'benefits' => array( 'Review generated SQL', 'Investigate trends and anomalies', 'Build reusable analytics workflows' ), 'tags' => array( 'AI-Assisted Analytics', 'SQL Transparency' ) ),
+	array( 'icon' => 'finance', 'class' => 'is-finance-team', 'title' => 'Finance Teams', 'copy' => 'Explain variances and improve planning with trusted, real-time financial insights.', 'benefits' => array( 'Analyze budget variances', 'Monitor financial performance', 'Improve forecasting accuracy' ), 'tags' => array( 'FP&A Analytics', 'Financial Planning' ) ),
+	array( 'icon' => 'it', 'class' => 'is-it-data', 'title' => 'IT & Data Teams', 'copy' => 'Deliver governed analytics while maintaining data quality, permissions, and platform reliability.', 'benefits' => array( 'Manage secure data access', 'Govern metrics and semantic models', 'Enforce enterprise permissions' ), 'tags' => array( 'Data Governance', 'Enterprise Security' ) ),
 );
 
 $supported_llms = array(
@@ -257,7 +257,7 @@ $other_products = array(
 
 	<section class="icp-intro" id="icp-intro" aria-labelledby="icp-intro-title">
 		<div class="icp-shell icp-intro-grid">
-			<div class="icp-intro-showcase-head"><p class="icp-kicker">Meet INFOFISCUS Conversa</p><h2 id="icp-intro-title">See the answer. Understand the why. Act with confidence.</h2><p>Ask questions in everyday language and turn complex enterprise data into clear, governed insights your teams can trust and act on.</p></div>
+			<div class="icp-intro-showcase-head"><p class="icp-kicker">Enterprise AI. Trusted Insights.</p><h2 id="icp-intro-title">Ask Questions. Find Root Causes. Act Faster.</h2><p>Conversa combines conversational AI, semantic understanding, and enterprise governance to deliver trusted insights, KPI explanations, root causes, and recommendations from your cloud data warehouse.</p></div>
 			<div class="icp-intro-video-frame icp-architecture-frame">
 				<div class="icp-intro-video-bar"><span><i></i><i></i><i></i></span><strong>Conversa Intelligence Architecture</strong><small>Governed analytics</small></div>
 				<div class="icp-architecture" aria-label="INFOFISCUS Conversa architecture from governed context to trusted answer">
@@ -282,15 +282,15 @@ $other_products = array(
 					</div>
 				</div>
 			</div>
-			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Ask naturally</strong><small>Explore data naturally—no SQL, complex reports, or dashboards.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Governed answers</strong><small>Trusted answers with consistent metrics and secure permissions.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>Move to action</strong><small>See key drivers and turn insights into confident next steps.</small></div></article></div>
+			<div class="icp-intro-value-row"><article><span><svg><use href="#icp-i-chat"></use></svg></span><div><strong>Natural Language Analytics</strong><small>Ask complex business questions without SQL.</small></div></article><article><span><svg><use href="#icp-i-trust"></use></svg></span><div><strong>Trusted Semantic Answers</strong><small>Use consistent metrics powered by your enterprise semantic layer.</small></div></article><article><span><svg><use href="#icp-i-trend"></use></svg></span><div><strong>AI Decision Intelligence</strong><small>Understand trends, anomalies, drivers, and recommendations instantly.</small></div></article></div>
 		</div>
 	</section>
 
 	<section class="icp-problem" aria-labelledby="icp-problem-title">
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
-				<h2 id="icp-problem-title">The Problem</h2>
-				<p>Data is everywhere. Answers aren't.</p>
+				<h2 id="icp-problem-title">Why Traditional Business Intelligence Slows Decisions</h2>
+				<p>Dashboards, SQL, and manual reporting prevent teams from getting timely answers.</p>
 			</div>
 			<div class="icp-card-grid icp-four">
 				<?php foreach ( $problems as $problem ) : ?>
@@ -307,8 +307,8 @@ $other_products = array(
 	<section class="icp-capabilities" id="icp-capabilities" aria-labelledby="icp-capabilities-title">
 		<div class="icp-shell">
 			<div class="icp-section-heading icp-center">
-				<h2 id="icp-capabilities-title">Platform Capabilities</h2>
-				<p>Everything you need to turn questions into business outcomes.</p>
+				<h2 id="icp-capabilities-title">INFOFISCUS Conversa Platform Capabilities</h2>
+				<p>Enterprise conversational analytics built for trusted, secure, and faster decisions.</p>
 			</div>
 			<div class="icp-capability-carousel" aria-label="Platform capabilities carousel">
 				<div class="icp-card-grid icp-capability-grid">
@@ -339,7 +339,7 @@ $other_products = array(
 
 	<section class="icp-workflow" id="icp-workflow" aria-labelledby="icp-workflow-title">
 		<div class="icp-shell">
-			<h2 id="icp-workflow-title">How INFOFISCUS Conversa Works</h2>
+			<h2 id="icp-workflow-title">How Enterprise Conversational Analytics Works</h2>
 			<div class="icp-workflow-row">
 				<?php foreach ( $steps as $step ) : ?>
 					<article>
@@ -361,10 +361,10 @@ $other_products = array(
 			</div>
 			<div class="icp-shift-board">
 				<div class="icp-shift-labels"><span>Before Conversa</span><span>Transformation</span><span>With Conversa</span></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-monitor"></use></svg></span><div><small>Manual analytics</small><h3>Dashboard dependency</h3><p>Teams wait for the right report or view.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-chat"></use></svg></span><div><small>Natural exploration</small><h3>Questions become accessible</h3><p>Anyone can explore governed data naturally.</p></div></article></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-path"></use></svg></span><div><small>Fragmented answers</small><h3>Disconnected context</h3><p>Definitions and answers vary across teams.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-eye"></use></svg></span><div><small>Explainable intelligence</small><h3>Answers arrive with context</h3><p>Every insight is clear, explainable, and useful.</p></div></article></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-database"></use></svg></span><div><small>Specialist dependent</small><h3>Technical bottlenecks</h3><p>Every new question returns to the data team.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-users"></use></svg></span><div><small>Shared metrics</small><h3>Teams align around truth</h3><p>Governed definitions keep decisions consistent.</p></div></article></div>
-				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-gauge"></use></svg></span><div><small>Slow decisions</small><h3>Decision uncertainty</h3><p>Delayed answers weaken confidence and action.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-trust"></use></svg></span><div><small>Trusted action</small><h3>Action moves with confidence</h3><p>Trusted intelligence supports the next best step.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-monitor"></use></svg></span><div><small>Before Conversa</small><h3>Data Silos</h3><p>Information stays fragmented across systems and teams.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-chat"></use></svg></span><div><small>With Conversa</small><h3>Unified Enterprise Intelligence</h3><p>Access trusted insights across connected enterprise data.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-path"></use></svg></span><div><small>Before Conversa</small><h3>Reactive Reporting</h3><p>Teams wait for reports after problems occur.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-eye"></use></svg></span><div><small>With Conversa</small><h3>Proactive Intelligence</h3><p>Detect trends, risks, and opportunities before impact.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-database"></use></svg></span><div><small>Before Conversa</small><h3>Knowledge Bottlenecks</h3><p>Business knowledge stays trapped with specialists.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-users"></use></svg></span><div><small>With Conversa</small><h3>Self-Service Analytics</h3><p>Everyone can explore trusted enterprise insights.</p></div></article></div>
+				<div class="icp-shift-row"><article class="icp-shift-problem"><span><svg><use href="#icp-i-gauge"></use></svg></span><div><small>Before Conversa</small><h3>Disconnected Decisions</h3><p>Teams rely on inconsistent reports and assumptions.</p></div></article><div class="icp-shift-flow" aria-hidden="true"><i></i><b>→</b></div><article class="icp-shift-result"><span><svg><use href="#icp-i-trust"></use></svg></span><div><small>With Conversa</small><h3>Business Alignment</h3><p>Shared metrics create organization-wide consistency.</p></div></article></div>
 			</div>
 		</div>
 	</section>
@@ -386,8 +386,8 @@ $other_products = array(
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-bank"></use></svg></span>
 						<h3>Finance</h3>
-						<p>Monitor performance, analyze variance, and forecast with confidence.</p>
-						<ul><li>P&L and balance sheet insights</li><li>Cash flow and working capital analysis</li><li>Budget vs actuals and forecasting</li></ul>
+						<p>Analyze profitability, cash flow, and forecasts with trusted conversational insights.</p>
+						<ul><li>Profitability and cash flow</li><li>Budget variance insights</li><li>Forecasting and KPI monitoring</li></ul>
 					</div>
 					<div class="icp-finance-chart"><h4>Net Profit Trend</h4><div class="icp-chart-card-line" data-chart="finance"></div></div>
 					<div class="icp-finance-kpis"><article><span>Gross Margin</span><strong>31.6%</strong><small>Up 4.2% vs Prior Period</small></article><article><span>EBITDA</span><strong>$34.2M</strong><small>Up 12.7% vs Prior Period</small></article></div>
@@ -396,8 +396,8 @@ $other_products = array(
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-chart"></use></svg></span>
 						<h3>Sales</h3>
-						<p>Track pipeline, conversion quality, and regional performance in real time.</p>
-						<ul><li>Pipeline health and win-rate trends</li><li>Revenue by region and channel</li><li>Account risk and next-best actions</li></ul>
+						<p>Analyze pipeline performance, revenue trends, and quota attainment in real time.</p>
+						<ul><li>Pipeline health and win-rate trends</li><li>Revenue by region and sales channel</li><li>Account risk and next-best actions</li></ul>
 					</div>
 					<div class="icp-finance-chart"><h4>Pipeline Conversion</h4><div class="icp-chart-card-line" data-chart="sales"></div></div>
 					<div class="icp-finance-kpis"><article><span>Win Rate</span><strong>42.8%</strong><small>Up 8.4% vs Prior Period</small></article><article><span>Pipeline</span><strong>$18.7M</strong><small>Up 15.1% vs Prior Period</small></article></div>
@@ -406,8 +406,8 @@ $other_products = array(
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-nodes"></use></svg></span>
 						<h3>Operations</h3>
-						<p>Spot bottlenecks, forecast capacity, and improve delivery performance.</p>
-						<ul><li>Inventory and fulfillment signals</li><li>Capacity and utilization analysis</li><li>Exception monitoring and alerts</li></ul>
+						<p>Monitor production, inventory, and supply chain performance to improve efficiency.</p>
+						<ul><li>Inventory and fulfillment insights</li><li>Capacity and utilization analysis</li><li>Exception monitoring and alerts</li></ul>
 					</div>
 					<div class="icp-finance-chart"><h4>Fulfillment Efficiency</h4><div class="icp-chart-card-line" data-chart="operations"></div></div>
 					<div class="icp-finance-kpis"><article><span>Cycle Time</span><strong>18%</strong><small>Improvement this quarter</small></article><article><span>On-Time SLA</span><strong>96.4%</strong><small>Up 5.8% vs Prior Period</small></article></div>
@@ -416,8 +416,8 @@ $other_products = array(
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-spark"></use></svg></span>
 						<h3>Marketing</h3>
-						<p>Understand campaign ROI, audience engagement, and funnel movement.</p>
-						<ul><li>Campaign spend and return insights</li><li>Lead scoring and conversion paths</li><li>Audience segments and channel mix</li></ul>
+						<p>Measure campaign performance, engagement, and ROI to optimize marketing investment.</p>
+						<ul><li>Campaign performance and ROI</li><li>Lead conversion and attribution</li><li>Audience and channel analytics</li></ul>
 					</div>
 					<div class="icp-finance-chart"><h4>Campaign ROI</h4><div class="icp-chart-card-line" data-chart="marketing"></div></div>
 					<div class="icp-finance-kpis"><article><span>MQL Growth</span><strong>28%</strong><small>Up 9.6% vs Prior Period</small></article><article><span>ROAS</span><strong>4.3X</strong><small>Up 13.2% vs Prior Period</small></article></div>
@@ -425,9 +425,9 @@ $other_products = array(
 				<div class="icp-use-panel" data-icp-use-panel="hr">
 					<div class="icp-finance-copy">
 						<span class="icp-use-icon"><svg><use href="#icp-i-users"></use></svg></span>
-						<h3>HR</h3>
-						<p>Analyze workforce trends, hiring velocity, and retention drivers.</p>
-						<ul><li>Hiring funnel and time-to-fill</li><li>Attrition and engagement signals</li><li>Workforce planning and skills gaps</li></ul>
+						<h3>Human Resources</h3>
+						<p>Analyze workforce trends, hiring performance, and employee engagement.</p>
+						<ul><li>Hiring and time-to-fill analytics</li><li>Attrition and engagement insights</li><li>Workforce planning and skills gaps</li></ul>
 					</div>
 					<div class="icp-finance-chart"><h4>Hiring Velocity</h4><div class="icp-chart-card-line" data-chart="hr"></div></div>
 					<div class="icp-finance-kpis"><article><span>Time to Fill</span><strong>22%</strong><small>Faster than prior period</small></article><article><span>Retention</span><strong>91.8%</strong><small>Up 3.4% vs Prior Period</small></article></div>

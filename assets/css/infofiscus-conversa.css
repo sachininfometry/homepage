@@ -6682,6 +6682,7 @@ body .infometry-conversa-product .icp-demo-form-section .icp-section-heading::be
   letter-spacing: .14em !important;
   white-space: nowrap !important;
 }
+
 body .infometry-conversa-product .icp-demo-form-section .icp-section-heading h2 {
   margin: 0 !important;
   color: #071a43 !important;
@@ -10970,4 +10971,40 @@ body .infometry-conversa-product :is(
   text-shadow: none !important;
   -webkit-text-fill-color: #ffffff !important;
   white-space: nowrap !important;
+}
+
+/* Final persona rhythm lock: equal title, description, benefit, and tag zones. */
+@media (min-width: 701px) {
+  body .infometry-conversa-product .icp-personas .icp-persona-card {
+    min-height: 450px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-card h3 {
+    min-height: 49px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-card > p {
+    min-height: 85px !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits {
+    display: grid !important;
+    min-height: 140px !important;
+    grid-template-rows: repeat(3, minmax(40px, 1fr)) !important;
+    align-content: stretch !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-benefits li {
+    width: 100% !important;
+    min-height: 40px !important;
+    height: 100% !important;
+    padding-block: 6px !important;
+    font-size: 11.25px !important;
+    line-height: 1.24 !important;
+  }
+
+  body .infometry-conversa-product .icp-personas .icp-persona-tags {
+    min-height: 32px !important;
+    align-self: stretch !important;
+  }
 }
